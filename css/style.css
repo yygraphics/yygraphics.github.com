@@ -24,7 +24,7 @@ gnb
 .navi-section {
 	margin-bottom: 20px;
 	padding-bottom: 20px;
-	border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+	border-bottom: 1px solid #d9d9d9;
 }
 
 .navi-section:last-child {
@@ -36,7 +36,6 @@ gnb
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap; 
-	margin-top: 0.8rem;
 }
 
 #copyright {
@@ -125,8 +124,44 @@ post page
 }
 
 /*
-color mode selector
+about & contact page
 */
+
+.siteinfo-container {
+	padding-top: 80px;
+	max-width: 1024px;
+	margin: 0 auto;
+}
+
+.siteinfo-text {
+	max-width: 560px;
+	margin: 0 auto;
+	padding-bottom: 24px;
+	margin-bottom: 24px;
+	border-bottom: 1px solid #d9d9d9;
+}
+.siteinfo-text p {
+	padding: 12px 0;
+}
+
+.siteinfo-text:first-child, .siteinfo-text:last-child {
+	border-bottom: none;
+}
+
+.personal-contact {
+	width: 50%;
+	float: left;
+}
+
+/*
+etc
+*/
+
+.clearfix:after {
+	content:""; 
+	display:block; 
+	clear:both;
+}
 
 
 /*

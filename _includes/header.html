@@ -17,22 +17,22 @@
 
 <div id="gnb">
 	<div id="logo">
-		<h4><a href="{{ site.url }}">yulri, takku. 🍺</a></h4>
+		<h4><a href="{{ site.baseurl }}">yulri, takku. 🍺</a></h4>
 	</div>
 	<div id="navi-container">
 		<div class="navi-section">
-			<h5><a href="{{ site.url}}/about">about</a></h5>
+			<h5><a href="{{ site.baseurl}}/about">about</a></h5>
 		</div>
 		<div class="navi-section">
-			<h5><a href="{{ site.url }}">works</a></h5>
+			<h5><a href="{{ site.baseurl }}">works</a></h5>
 			<ul>
 				{% for post in site.posts %}
-				<li class="work-li"><a href="{{ site.url}}{{ post.url }}">{{ post.title }}</a></li>
+				<li class="work-li"><a href="{{ site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
 				{% endfor %}
 			</ul>
 		</div>
 		<div class="navi-section">
-			<h5><a href="{{ site.url}}/contact">contact</a></h5>
+			<h5><a href="{{ site.baseurl}}/contact">contact</a></h5>
 			<ul>
 				<li class="work-li"><a href="">Yul's Instagram</a></li>
 				<li class="work-li"><a href="">Youtak's Instagram</a></li>

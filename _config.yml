@@ -5,7 +5,7 @@ baseurl: ""
 url: "https://yygraphics.github.io"
 github_username:  yygraphics
 
-permalink: /works/:year/:title
+permalink: /:year/:title
 markdown: kramdown
 
 

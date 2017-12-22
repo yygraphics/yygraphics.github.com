@@ -1,0 +1,24 @@
+{% include header.html %}
+
+<div class="content-container">
+    <div id="post-container">
+    	<div id="post-info">
+	    	<button id="post-close"><img src="{{ site.baseurl }}/images/sources/close.svg"></button>		    
+		    <div id="post-caption">
+				<h4>{{page.title}}</h4>
+				<p>{{page.description}}</p>
+				<p>design: {{page.designer}}</p>
+				<p>illustration: {{page.illustrator}}</p>
+				<p>photograph: {{page.photographer}}</p>
+				<p>client: {{page.cilent}}</p>
+			</div>
+			<button id="post-prev"><img src="{{ site.baseurl }}/images/sources/right-angle-bracket.svg"></button>
+			<button id="post-next"><img src="{{ site.baseurl }}/images/sources/left-angle-bracket.svg"></button>
+		</div>
+	    <div id="post-body">
+		    {{ content }}
+		</div>
+	</div>
+</div>
+
+{% include footer.html %}

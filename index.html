@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<div id="decoration">
+
+</div>
+<div class="bricklayer">
+	{% for post in site.posts %}
+	<div class="card">
+		{% if post.cover-image %}
+		<div class="card-cover">
+			<a href="{{ site.url }}{{ post.url }}"><img src="{{post.cover-image}}"></a>
+		</div>
+		{% endif %}
+		<div class="card-info">
+			<h5><a href="{{ site.url }}{{ post.url }}">{{post.title}}</a></h5>
+			<p><small><a href="">{{post.categories}}</a></small></p>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+
+
+<script src="{{ site.baseurl }}/js/bricklayer.min.js"></script>
+<script>
+	var bricklayer = new Bricklayer(document.querySelector(".bricklayer"))
+</script>

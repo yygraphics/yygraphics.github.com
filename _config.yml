@@ -2,7 +2,7 @@ title: yy graphics
 description: "yy graphics is the design studio that Yul and Youtak is running"
 
 baseurl: "" 
-url: "https://yygraphics.github.com"
+url: "https://yygraphics.github.io"
 github_username:  yygraphics
 
 permalink: /works/:year/:title

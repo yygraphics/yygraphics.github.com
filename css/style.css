@@ -46,10 +46,15 @@ gnb
 content
 */
 
-.content-container {
+#content-container {
 	margin-left: 280px;
 	padding: 32px 24px;
 }
+
+
+/*
+index page
+*/
 
 #decoration {
 	height: 80px;
@@ -127,7 +132,7 @@ post page
 about & contact page
 */
 
-.siteinfo-container {
+#siteinfo-container {
 	padding-top: 80px;
 	max-width: 1024px;
 	margin: 0 auto;
@@ -163,6 +168,80 @@ etc
 	clear:both;
 }
 
+/*
+animation and transition
+*/
+
+
+.animation-fadein {
+	-webkit-animation: fadein 1s ease-out;
+	-moz-animation: fadein 1s ease-out;
+	-ms-animation: fadein 1s ease-out;
+	-o-animation: fadein 1s ease-out;
+	animation: fadein 1s ease-out;
+
+}
+
+@-webkit-keyframes fadein {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+@-moz-keyframes fadein {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+@-ms-keyframes fadein {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+@-o-keyframes fadein {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+@keyframes fadein {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+.animation-upward {
+	position: relative;
+
+	-webkit-animation: upward 1s ease-out;
+	-moz-animation: upward 1s ease-out;
+	-ms-animation: upward 1s ease-out;
+	-o-animation: upward 1s ease-out;
+	animation: upward 1s ease-out;
+}
+
+@-webkit-keyframes upward {
+    from {opacity:0; top:64px;}
+    to {opacity:1; top:0px;}
+}
+
+@-moz-keyframes upward {
+    from {opacity:0; top:64px;}
+    to {opacity:1; top:0px;}
+}
+
+@-ms-keyframes upward {
+    from {opacity:0; top:64px;}
+    to {opacity:1; top:0px;}
+}
+
+@-o-keyframes upward {
+    from {opacity:0; top:64px;}
+    to {opacity:1; top:0px;}
+}
+
+@keyframes upward {
+    from {opacity:0; top:64px;}
+    to {opacity:1; top:0px;}
+}
+
 
 /*
 media query
@@ -178,7 +257,7 @@ media query
 		display: none;
 	}
 
-	.content-container {
+	#content-container {
 		margin-left: initial;
 		padding: 32px 24px;
 	}

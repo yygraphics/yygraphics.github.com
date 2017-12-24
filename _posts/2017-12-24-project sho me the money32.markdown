@@ -14,6 +14,10 @@ size: ""
 cover-image: /images/post/test2.jpg
 ---
 
+`<img src="https://www.rover.com/blog/wp-content/uploads/2014/07/corgi-dog-smiling.jpg">`
+위 사진은 태그로 불러온 것임
+
+
 ![1](https://www.rover.com/blog/wp-content/uploads/2014/07/corgi-dog-smiling.jpg)
 ![1](https://media.buzzle.com/media/images-en/gallery/mammals/dogs/1200-160120907-pembroke-welsh-corgi.jpg)
 ![1](https://i.imgur.com/LLmrhKl.jpg)

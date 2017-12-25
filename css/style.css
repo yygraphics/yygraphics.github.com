@@ -48,7 +48,7 @@ content
 
 #content-container {
 	margin-left: 280px;
-	padding: 32px 24px;
+	padding: 32px 56px;
 }
 
 
@@ -108,31 +108,39 @@ post page
 	max-width: 960px;
 }
 
-#post-info {
+#info-container {
 	position: fixed;
 	width: 312px;
 	top: 32px;
 	right: 0;
 	padding: 0 8px;
-	margin-right: 32px;
+	margin-right: 64px;
 }
 .post-content {
 	margin-bottom: 24px;
 }
 
-#post-caption {
+#post-info {
 	margin: 40px 0;
 }
 
+.info-section {
+	margin-bottom: 12px;
+	padding-bottom: 12px;
+}
+
 #post-close {
+	float: right;
 	height: 32px;
 }
 
-#post-prev {
+#prev-post {
+	float: left;
 	height: 32px;
 }
 
-#post-next {
+#next-post {
+	float: right;
 	height: 32px;
 }
 
@@ -288,7 +296,7 @@ animation and transition
 /*
 media query
 */
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 1450px) {
 	#post-container {
 		margin: initial;
 		padding: initial;
@@ -298,7 +306,7 @@ media query
 		max-width: 800px;
 	}
 
-	#post-info {
+	#info-container {
 		position: static;
 		width: initial;
 		max-width: 560px;
@@ -309,8 +317,7 @@ media query
 
 @media screen and (max-width: 840px) {
 	#gnb {
-		width: 100%;
-		height: 56px;
+		display: none;
 	}
 
 	#navi-container {
@@ -321,7 +328,7 @@ media query
 		margin-left: initial;
 		padding: 32px 24px;
 	}
-	#post-info, #post-body p, .siteinfo-text {
+	#info-container, #post-body p, .siteinfo-text {
 		max-width: initial;
 	}
 }

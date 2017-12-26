@@ -7,8 +7,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="{{ site.baseurl }}/css/base.css">
 	<link rel="stylesheet" href="{{ site.baseurl }}/css/style.css">
-	<link rel="stylesheet" href="{{ site.baseurl }}/css/bricklayer.css">
-	<link rel="stylesheet" href="{{ site.baseurl }}/css/perfect-scrollbar.css">
 </head>
 
 <body class="bg-color">
@@ -25,7 +23,11 @@
 			<h5><a href="{{ site.url }}">works</a></h5>
 			<ul>
 				{% for post in site.posts %}
-				<li class="work-li"><a href="{{ site.url}}{{ post.url }}">{{ post.title }}</a></li>
+				{% if page.url == post.url %}
+				<li class="work-li li-active"><a href="{{ site.url }}{{ post.url }}" class="li-active">{{post.title}}</a></li>
+				{% else %}
+				<li class="work-li"><a href="{{ site.url }}{{ post.url }}">{{post.title}}</a></li>
+				{% endif %}
 				{% endfor %}
 			</ul>
 		</div>
@@ -42,3 +44,6 @@
 		<p>© yy graphics</p>
 	</div>
 </div>
+
+
+

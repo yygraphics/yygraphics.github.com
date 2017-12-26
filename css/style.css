@@ -5,9 +5,10 @@ gnb
 #gnb {
 	width: 248px;
 	height: 100%;
-	padding: 0 20px 0 32px;
+	padding: 0 50px 0 32px;
 	position: fixed;
 	overflow: auto;
+	overflow-y: hidden;
 }
 
 #logo {

@@ -2,44 +2,14 @@
 new PerfectScrollbar("#gnb");
 
 
+/* 시간에 따라서 배경 색 바뀌게 */
 
-/*lazy loading*/
-/*
-var imgEl = document.getElementsByTagName('img');
+var day = new Date() 
+var time = day.getHours() 
+var bg = document.body;
 
-for (var i=0; i<imgEl.length; i++) {
-    if(imgEl[i].getAttribute('src')) {
-       imgEl[i].setAttribute('data-src',imgEl[i].getAttribute('src'));
-       imgEl[i].removeAttribute('src');
-       imgEl[i].classList.add( 'lazyload' );
-    }
+if (time >= 8 && time < 18) {
+	bg.className = "positive";	
+} else {
+	bg.className = "negative";
 }
-
-
-$("img").addClass('lazyload');
-$("img").each(function() {
-    $(this).attr("data-src",$(this).attr("src"));
-    $(this).removeAttr("src");
-    console.log($(this)[0].outerHTML);
-});*/
-
-
-/* 화면전환 트렌지션*/
-/*
-$(document).ready(function() {
-	$("a").click (function(event) {
-		event.preventDefault();
-		var href = $(this).attr("href");
-				 
-		$.ajax({
-			type: "GET",
-			url: href,
-			dataType: "html",
-			success: function(data) {
-				var content = $(data).find(".ajax").html();
-				console.log(content);
-			}
-		});
-	});
-});
-*/

@@ -19,12 +19,16 @@
 			<div class="clearfix">
 				<div id="prev-post">
 					{% if page.previous.url %}
-				    <a class="prev" href="{{page.previous.url}}"><button ><img src="{{ site.baseurl }}/images/right-angle-bracket.svg"></button></a>
+				    <a href="{{ page.previous.url }}"><button><img src="{{ site.baseurl }}/images/right-angle-bracket.svg"></button></a>
+					{% else %}
+					<button class="disable-button" ><img src="{{ site.baseurl }}/images/right-angle-bracket.svg"></button>
 					{% endif %}
 				</div>
 				<div id="next-post">
 					{% if page.next.url %}
 					<a class="next" href="{{page.next.url}}"><button><img src="{{ site.baseurl }}/images/left-angle-bracket.svg"></button></a>
+					{% else %}
+					<button class="disable-button" ><img src="{{ site.baseurl }}/images/left-angle-bracket.svg"></button>
 					{% endif %}
 				</div>
 			</div>

@@ -5,9 +5,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	vertical-align: baseline;
 }
 
-body {
-	background-color: white;
-}
 
 a img {
 	border: none;
@@ -37,6 +34,11 @@ button:focus {
 	outline: 0;
 }
 
+.disable-button {
+	opacity: 0.1;
+	cursor: not-allowed;
+}
+
 /*
 typo
 */
@@ -45,7 +47,7 @@ typo
 body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 1rem;
-	color: #111;
+	color: inherit;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -54,21 +56,17 @@ h1, h2, h3, h4, h5, h6 {
 
 h4 {
 	font-size: 1.2rem;
-	font-weight: bold;
+	font-weight: 700;
 }
 
 h5 {
 	font-size: 1rem;
-	font-weight: bold;
+	font-weight: 700;
 }
 
 a {
 	text-decoration: none;
-	color: #111;
-}
-
-a:hover {
-	color: #999;
+	color: inherit;
 }
 
 small {
@@ -80,20 +78,9 @@ p {
 }
 
 strong {
-	font-weight: bold;
+	font-weight: 700;
 }
 
 .grayfont {
 	color: #ccc;
-}
-
-/*
-transition
-*/
-
-a, img {
-	-webkit-transition: all 0.2s; /* Safari */
-    -webkit-transition-timing-function: linear; /* Safari */
-    transition: all 0.2s;
-    transition-timing-function: linear;
 }

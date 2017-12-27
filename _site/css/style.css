@@ -5,7 +5,7 @@ gnb
 #gnb {
 	width: 248px;
 	height: 100%;
-	padding: 0 50px 0 32px;
+	padding: 0 20px 0 32px;
 	position: fixed;
 	overflow: auto;
 	overflow-y: hidden;
@@ -75,6 +75,10 @@ post card
 
 .card-cover img{
 	width: 100%;
+  -webkit-transition: all 0.2s; /* Safari */
+  -webkit-transition-timing-function: linear; /* Safari */
+  transition: all 0.2s;
+  transition-timing-function: linear;
 }
 
 .card-cover:hover img{
@@ -162,7 +166,7 @@ about & contact page
 .siteinfo-text {
 	max-width: 560px;
 	margin: 0 auto;
-	padding: 0 8px 24px 8px;
+	padding-bottom: 24px;
 	margin-bottom: 24px;
 	border-bottom: 1px solid #d9d9d9;
 }
@@ -434,7 +438,7 @@ progressive image CSS
 }
 
 .progressive img.preview {
-  filter: blur(2vw);
+  filter: blur(4vw);
   transform: scale(1.05);
 }
 
@@ -447,9 +451,40 @@ progressive image CSS
 }
 
 @keyframes progressiveReveal {
-	0% { transform: scale(1.05); opacity: 0; }
+	0% { transform: scale(1.05); opacity: 0.5; }
 	100% { transform: scale(1); opacity: 1; }
 }
+
+/*
+color mode selector
+*/
+
+.negative {
+  background: rgba(17,17,17,1);
+  color: rgba(255,255,255,1); 
+}
+
+.negative a {
+  color: rgba(255,255,255,1);
+}
+
+.negative a:hover {
+  color: rgba(255,255,255,0.6);
+}
+
+.positive {
+  background: rgba(255,255,255,1);
+  color: rgba(17,17,17,1);  
+}
+
+.positive a {
+  color: rgba(17,17,17,1);
+}
+
+.positive a:hover {
+  color: rgba(17,17,17,0.5);
+}
+
 
 /*
 media query

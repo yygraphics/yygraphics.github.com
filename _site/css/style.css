@@ -25,7 +25,7 @@ gnb
 .navi-section {
 	margin-bottom: 20px;
 	padding-bottom: 20px;
-	border-bottom: 1px solid #d9d9d9;
+	border-bottom: 1px solid rgba(153,153,153,0.3);
 }
 
 .navi-section:last-child {
@@ -53,7 +53,7 @@ content
 
 #content-container {
 	margin-left: 280px;
-	padding: 32px 56px;
+	padding: 32px 0px;
 }
 
 
@@ -61,13 +61,13 @@ content
 index page
 */
 
+#index-container {
+  padding: 0 24px;
+}
+
 #decoration {
 	height: 80px;
 }
-
-/*
-post card
-*/
 
 .card-cover {
 	overflow: hidden;
@@ -98,13 +98,13 @@ post page
 
 #post-container {
 	margin-right: 352px;
+  padding: 0 32px;
 	padding-top: 80px;
 }
 
 #post-body {
 	max-width: 960px;
 	margin: 0 auto;
-	padding: 0 8px;
 }
 
 #post-body p{
@@ -119,38 +119,44 @@ post page
 
 #info-container {
 	position: fixed;
-	width: 312px;
+	width: 320px;
 	top: 32px;
 	right: 0;
-	padding: 0 8px;
-	margin-right: 64px;
+	margin-right: 32px;
 }
 .post-content {
-	margin-bottom: 24px;
+	margin-bottom: 32px;
 }
 
 #post-info {
-	margin: 40px 0;
+	margin: 42px 0;
 }
 
 .info-section {
-	margin-bottom: 12px;
-	padding-bottom: 12px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+  border-bottom: 1px solid rgba(153,153,153,0.3);
 }
 
-#post-close {
-	float: right;
-	height: 32px;
+.info-section:last-child {
+  border-bottom: none;
 }
 
 #prev-post {
 	float: left;
+  margin-right: 24px;
 	height: 32px;
 }
 
 #next-post {
-	float: right;
+	float: left;
+  margin-right: 24px;
 	height: 32px;
+}
+
+#go-index {
+  float: right;
+  height: 32px;
 }
 
 /*
@@ -158,7 +164,8 @@ about & contact page
 */
 
 #siteinfo-container {
-	padding-top: 80px;
+	padding: 0 32px;
+  padding-top: 80px;
 	max-width: 1024px;
 	margin: 0 auto;
 }
@@ -168,7 +175,7 @@ about & contact page
 	margin: 0 auto;
 	padding-bottom: 24px;
 	margin-bottom: 24px;
-	border-bottom: 1px solid #d9d9d9;
+	border-bottom: 1px solid rgba(153,153,153,0.3);
 }
 .siteinfo-text p {
 	padding: 12px 0;
@@ -461,19 +468,19 @@ color mode selector
 
 .negative {
   background: rgba(17,17,17,1);
-  color: rgba(255,255,255,1); 
+  color: rgba(230,230,230,1); 
 }
 
 .negative a {
-  color: rgba(255,255,255,1);
+  color: rgba(230,230,230,1);
 }
 
 .negative a:hover {
-  color: rgba(255,255,255,0.6);
+  color: rgba(230,230,230,0.6);
 }
 
 .positive {
-  background: rgba(255,255,255,1);
+  background: rgba(245,245,245,1);
   color: rgba(17,17,17,1);  
 }
 
@@ -493,7 +500,7 @@ media query
 @media screen and (max-width: 1450px) {
 	#post-container {
 		margin: initial;
-		padding: initial;
+    padding: 0 32px;
 	}
 
 	#post-body {
@@ -520,8 +527,23 @@ media query
 
 	#content-container {
 		margin-left: initial;
-		padding: 32px 24px;
 	}
+
+  #index-container {
+    padding: 0 8px;
+  }
+
+  #post-container {
+    padding: 0;
+  }
+
+  #siteinfo-container {
+    padding: 0 16px;
+    padding-top: 80px;
+  }
+  #info-container, #post-body p {
+    padding: 0 16px;
+  }
 	#info-container, #post-body p, .siteinfo-text {
 		max-width: initial;
 	}

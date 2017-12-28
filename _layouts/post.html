@@ -4,27 +4,27 @@
     <div id="post-container">
     	<div id="info-container">
 	    	<div id="post-navi" class="clearfix">
-				<div id="prev-post">
-					{% if page.previous.url %}
-				    <button><a href="{{ page.previous.url }}"><img id="prev-icon" src=""></a></button>
-					{% else %}
-					<button class="disable-button" ><img id="prev-icon" src=""></button>
-					{% endif %}
-				</div>
 				<div id="next-post">
 					{% if page.next.url %}
-					<button><a class="next" href="{{page.next.url}}"><img id="next-icon" src=""></a></button>
+					<button><a class="next" href="{{ page.next.url }}"><img id="next-icon" src="{{ site.baseurl }}/images/right-angle-bracket-dark.svg"></a></button>
 					{% else %}
-					<button class="disable-button" ><img id="next-icon" src=""></button>
+					<button class="disable-button" ><img id="next-icon" src="{{ site.baseurl }}/images/right-angle-bracket-dark.svg"></button>
 					{% endif %}
 				</div>
 				<div id="go-index">
-			    	<button><a href="{{ site.url }}"><img id="index-icon" src=""></a></button>
+			    	<button><a href="{{ site.url }}"><img id="index-icon" src="{{ site.baseurl }}/images/grid-layout-dark.svg"></a></button>
 		    	</div>
+				<div id="prev-post">
+					{% if page.previous.url %}
+				    <button><a href="{{ page.previous.url }}"><img id="prev-icon" src="{{ site.baseurl }}/images/left-angle-bracket-dark.svg"></a></button>
+					{% else %}
+					<button class="disable-button" ><img id="prev-icon" src="{{ site.baseurl }}/images/left-angle-bracket-dark.svg"></button>
+					{% endif %}
+				</div>
 	    	</div>		    
 		    <div id="post-info">
 				<div id="post-title" class="info-section">
-					<h3>{{ page.title }}</h3>
+					<h4>{{ page.title }}</h4>
 				</div>
 				<div class="info-section">
 					<p>{{ page.description }}</p>
@@ -35,7 +35,10 @@
 					{% endfor %}
 				</div>
 				<div class="info-section">
-					<p>Disciplines: {{ page.tags }}</p>
+					Disciplines :
+					{% for item in page.tags %}
+						<span class="post-tag">{{ item }}</span>
+					{% endfor %}
 				</div>
 			</div>
 			<div class="clearfix">

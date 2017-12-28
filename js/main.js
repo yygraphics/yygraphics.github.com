@@ -11,23 +11,25 @@ var bg = document.body;
 var postInfo = document.getElementById("post-info")
 
 if (time >= 7 && time < 18) {
+	document.getElementById("logo-img").src="../images/logo-dark.svg";
 	bg.className = "positive";
-	meetusEmoji = document.createTextNode("☕");	
-	meetusMessage = "커피 한잔 고고고";
 	if (typeof(postInfo) != 'undefined' && postInfo != null) {
-		document.getElementById("prev-icon").src="../images/right-angle-bracket-dark.svg";
-		document.getElementById("next-icon").src="../images/left-angle-bracket-dark.svg";
+		document.getElementById("prev-icon").src="../images/left-angle-bracket-dark.svg";
+		document.getElementById("next-icon").src="../images/right-angle-bracket-dark.svg";
 		document.getElementById("index-icon").src="../images/grid-layout-dark.svg";
 	}
+	meetusEmoji = document.createTextNode("☕");	
+	meetusMessage = "커피 한잔 고고고";
 } else {
+	document.getElementById("logo-img").src="../images/logo-light.svg";
 	bg.className = "negative";
-	meetusEmoji = document.createTextNode("🍺");
-	meetusMessage = "역시 저녁에는 맥주입니다";
 	if (typeof(postInfo) != 'undefined' && postInfo != null) {
-		document.getElementById("prev-icon").src="../images/right-angle-bracket-light.svg";
-		document.getElementById("next-icon").src="../images/left-angle-bracket-light.svg";
+		document.getElementById("prev-icon").src="../images/left-angle-bracket-light.svg";
+		document.getElementById("next-icon").src="../images/right-angle-bracket-light.svg";
 		document.getElementById("index-icon").src="../images/grid-layout-light.svg";
 	}
+	meetusEmoji = document.createTextNode("🍺");
+	meetusMessage = "역시 저녁에는 맥주입니다";
 }
 
 

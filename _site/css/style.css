@@ -48,8 +48,9 @@ gnb
 }
 
 #meetus {
-  margin-left: 8px;
-  font-size: 2rem;
+  position: absolute;
+  left: 186px;
+  font-size: 2.4rem;
 }
 
 /*
@@ -74,27 +75,42 @@ index page
 	height: 80px;
 }
 
+.card {
+  margin-bottom: 32px;
+}
+
+.card a {
+  display: block;
+}
+
 .card-cover {
 	overflow: hidden;
+  margin-bottom: 12px;
 }
 
 .card-cover img{
 	width: 100%;
-  -webkit-transition: all 0.2s; /* Safari */
-  -webkit-transition-timing-function: linear; /* Safari */
-  transition: all 0.2s;
-  transition-timing-function: linear;
+  display: block;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
-.card-cover:hover img{
+.card a:hover .card-cover img{
+  -webkit-transform: scale(1.07);
 	-moz-transform: scale(1.07);
-	-webkit-transform: scale(1.07);
+  -ms-transform: scale(1.07);
+  -o-transform: scale(1.07);
 	transform: scale(1.07);
-
+}
+.card-title {
+  margin-bottom: 4px;
 }
 
-.card-info {
-	padding: 16px 0 32px 0;
+.card-tag {
+  margin-right: 2px;
 }
 
 /*
@@ -152,7 +168,7 @@ post-page - info
   margin-bottom: 0;
 }
 .info-section:first-child {
-  padding-top: 24px;
+  padding-top: 20px;
   border-top: 2px solid rgba(153,153,153,0.3);
 }
 
@@ -175,6 +191,10 @@ post-page - info
 #go-index {
   float: right;
   height: 32px;
+}
+
+.post-tag {
+  margin-right: 3px;
 }
 
 /*

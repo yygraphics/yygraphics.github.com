@@ -8,19 +8,19 @@ layout: default
 	<div class="bricklayer animation-fadein">
 		{% for post in site.posts %}
 		<div class="card">
-			{% if post.cover-image %}
-			<div class="card-cover">
-				<a href="{{ site.url }}{{ post.url }}"><img src="{{ post.cover-image }}"></a>
-			</div>
-			{% endif %}
-			<div class="card-info">
-				<h5><a href="{{ site.url }}{{ post.url }}">{{post.title}}</a></h5>
-				<small>
-					{% for item in post.tags %}
-						<a href="">{{ item }}</a>
-					{% endfor %}
-				</small>
-			</div>
+			<a href="{{ site.url }}{{ post.url }}">
+				{% if post.cover-image %}
+				<div class="card-cover">
+					<img src="{{ post.cover-image }}">
+				</div>
+				{% endif %}
+				<div class="card-title"><h5>{{post.title}}</h5></div>
+			</a>
+			<small>
+				{% for item in post.tags %}
+				<span class="card-tag">{{ item }}</span>
+				{% endfor %}
+			</small>
 		</div>
 		{% endfor %}
 	</div>

@@ -14,7 +14,7 @@
 
 <div id="gnb">
 	<div id="logo">
-		<h3><a href="http://localhost:4000">YY GRAPHICS 🍺</a></h3>
+		<a href="http://localhost:4000">YY GRAPHICS</a><button id="meetus" onclick="meetus()"></button>
 	</div>
 	<div id="navi-container">
 		<div class="navi-section">
@@ -163,24 +163,26 @@
 <div id="content-container">
     <div id="post-container">
     	<div id="info-container">
-	    	<div id="post-nav" class="clearfix">
+	    	<div id="post-navi" class="clearfix">
 				<div id="prev-post">
 					
-				    <a href="/2017/countdown1"><button><img src="/images/right-angle-bracket.svg"></button></a>
+				    <button><a href="/2017/countdown1"><img id="prev-icon" src=""></a></button>
 					
 				</div>
 				<div id="next-post">
 					
-					<a class="next" href="/2017/countdown3"><button><img src="/images/left-angle-bracket.svg"></button></a>
+					<button><a class="next" href="/2017/countdown3"><img id="next-icon" src=""></a></button>
 					
 				</div>
 				<div id="go-index">
-			    	<a href="http://localhost:4000"><button><img src="/images/close.svg"></button></a>
+			    	<button><a href="http://localhost:4000"><img id="index-icon" src=""></a></button>
 		    	</div>
 	    	</div>		    
 		    <div id="post-info">
-				<div class="info-section">
+				<div id="post-title" class="info-section">
 					<h3>big picture edition</h3>
+				</div>
+				<div class="info-section">
 					<p>desc test</p>
 				</div>
 				<div class="info-section">

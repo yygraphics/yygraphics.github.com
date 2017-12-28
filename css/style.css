@@ -47,6 +47,11 @@ gnb
 	margin-bottom: 40px;
 }
 
+#meetus {
+  margin-left: 8px;
+  font-size: 2rem;
+}
+
 /*
 content
 */
@@ -93,7 +98,7 @@ index page
 }
 
 /*
-post page
+post page - body
 */
 
 #post-container {
@@ -128,8 +133,12 @@ post page
 	margin-bottom: 32px;
 }
 
+/*
+post-page - info
+*/
+
 #post-info {
-	margin: 42px 0;
+	margin-bottom: 40px;
 }
 
 .info-section {
@@ -138,8 +147,17 @@ post page
   border-bottom: 1px solid rgba(153,153,153,0.3);
 }
 
-.info-section:last-child {
+.info-section:last-child, .info-section:first-child {
   border-bottom: none;
+  margin-bottom: 0;
+}
+.info-section:first-child {
+  padding-top: 24px;
+  border-top: 2px solid rgba(153,153,153,0.3);
+}
+
+#post-navi {
+  padding-bottom: 48px;
 }
 
 #prev-post {
@@ -370,7 +388,6 @@ perfact scroll bar
   }
 }
 
-
 /*
 bricklayer css
 */
@@ -446,7 +463,6 @@ progressive image CSS
 
 .progressive img.preview {
   filter: blur(4vw);
-  transform: scale(1.05);
 }
 
 .progressive img.reveal {
@@ -458,8 +474,8 @@ progressive image CSS
 }
 
 @keyframes progressiveReveal {
-	0% { transform: scale(1.05); opacity: 0.5; }
-	100% { transform: scale(1); opacity: 1; }
+	0% { transform: opacity: 0.5; }
+	100% { transform: opacity: 1; }
 }
 
 /*

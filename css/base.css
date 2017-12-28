@@ -35,7 +35,7 @@ button:focus {
 }
 
 .disable-button {
-	opacity: 0.1;
+	opacity: 0.2;
 	cursor: not-allowed;
 }
 
@@ -76,6 +76,10 @@ a {
 
 small {
 	font-size: 1.2rem;
+}
+
+big {
+	font-size: 1.8rem;
 }
 
 p {

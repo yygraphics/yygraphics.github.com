@@ -11,7 +11,7 @@ var postInfo = document.getElementById("post-info")
 
 var meetusEmoji; 
 
-if (time >= 7 && time < 12) {
+if (time >= 7 && time < 18) {
 	bg.className = "positive";
 	meetusEmoji = document.createTextNode("☕");	
 	meetusMessage = "커피 한잔 고고고";

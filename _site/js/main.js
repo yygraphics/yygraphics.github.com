@@ -55,6 +55,8 @@ if (typeof(postInfo) != 'undefined' && postInfo != null) {
 		}
 	}
 	// 스크롤에 따른 글 제목 화면에 고정
+	var postTitle = document.getElementById("post-title");
+	var sticky = postTitle.offsetTop+4;
 	window.onscroll = function() {stickyItem()};
 	function stickyItem() {
 		if (window.pageYOffset >= sticky && windowWidth <= 1450) {
@@ -62,7 +64,7 @@ if (typeof(postInfo) != 'undefined' && postInfo != null) {
 		} else {
 		postTitle.classList.remove("sticky");
 		}
-	}
+	}	
 }
 
 

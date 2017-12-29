@@ -37,26 +37,25 @@ function meetus() {
 
 
 if (typeof(postInfo) != 'undefined' && postInfo != null) {
+	// 화면 폭에 따라 gnb 지우기 
 	var windowWidth = window.innerWidth;
 	var gnb = document.getElementById("gnb")
-	var postTitle = document.getElementById("post-title");
-	var sticky = postTitle.offsetTop+4;
-
-	window.onresize = function() {headerRemove()};
-	window.onscroll = function() {stickyItem()};
-
-	// 스크린 크기에 따라 헤더 없애기
-	function headerRemove() {
+	if (windowWidth <= 840) {
+		gnb.style.display = "none";	
+	} else {
+		gnb.style.display = "block";	
+	}
+	window.onresize = function() {gnbRemove()} 
+	function gnbRemove() {
 		windowWidth = window.innerWidth;
-		console.log(windowWidth);
 		if (windowWidth <= 840) {
 			gnb.style.display = "none";	
 		} else {
 			gnb.style.display = "block";	
 		}
 	}
-
-	// 글 제목 화면에 고정
+	// 스크롤에 따른 글 제목 화면에 고정
+	window.onscroll = function() {stickyItem()};
 	function stickyItem() {
 		if (window.pageYOffset >= sticky && windowWidth <= 1450) {
 		postTitle.classList.add("sticky");

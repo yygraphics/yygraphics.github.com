@@ -20,6 +20,7 @@ gnb
 
 #logo a {
   float: left;
+  margin: initial;
 }
 
 .navi-section {
@@ -54,6 +55,12 @@ gnb
   font-size: 2.4rem;
 }
 
+#navi-toggle {
+  margin-right: 16px;
+  float: right;
+  display: none;
+}
+
 /*
 content
 */
@@ -69,7 +76,7 @@ index page
 */
 
 #index-container {
-  padding: 0 24px;
+  padding: 80px 24px 0 24px;
 }
 
 #decoration {
@@ -227,12 +234,17 @@ about & contact page
 	margin-bottom: 24px;
 	border-bottom: 1px solid rgba(153,153,153,0.3);
 }
+
 .siteinfo-text p {
 	padding: 12px 0;
 }
 
 .siteinfo-text:first-child, .siteinfo-text:last-child {
 	border-bottom: none;
+}
+
+.siteinfo-text:first-child {
+  padding-bottom: 0;
 }
 
 .personal-contact {
@@ -286,6 +298,40 @@ animation and transition
 @keyframes fadein {
   from {opacity:0;}
   to {opacity:1;}
+}
+
+.animation-fadeout {
+  -webkit-animation: fadeout 1s ease-out;
+  -moz-animation: fadeout 1s ease-out;
+  -ms-animation: fadeout 1s ease-out;
+  -o-animation: fadeout 1s ease-out;
+  animation: fadeout 1s ease-out;
+
+}
+
+@-webkit-keyframes fadeout {
+  from {opacity:1;}
+  to {opacity:0;}
+}
+
+@-moz-keyframes fadeout {
+  from {opacity:1;}
+  to {opacity:0;}
+}
+
+@-ms-keyframes fadeout {
+  from {opacity:1;}
+  to {opacity:0;}
+}
+
+@-o-keyframes fadeout {
+  from {opacity:1;}
+  to {opacity:0;}
+}
+
+@keyframes fadeout {
+  from {opacity:1;}
+  to {opacity:0;}
 }
 
 .animation-upward {
@@ -602,30 +648,43 @@ media query
 	#gnb {
     width: 100%;
     height: initial;
-    padding: 0 16px;
+    padding: initial;
   }
 
   #logo {
     width: 100%;
-    height: inherit;
-    padding: 16px 0;
+    height: initial;
+    padding: 24px 0;
+  }
+
+  #logo a {
+    margin-left: 16px;
   }
 
   #meetus {
     left: 170px;
   }
+  
+  #navi-toggle {
+    display: block;
+  }
 
   #navi-container {
 		display: none;
+    padding: 0 16px;
 	}
+
+  .work-li {
+    width: initial;
+  }
 
 	#content-container {
 		margin-left: initial;
-    padding: 16px 0px;
+    padding: 24px 0 0 0;
 	}
 
   #index-container {
-    padding: 0 8px;
+    padding: 56px 8px 0 8px;
   }
 
   #post-container {
@@ -651,7 +710,7 @@ media query
   }
 
   #post-navi {
-    padding: 0 0 16px 0;
+    padding: 0 0 24px 0;
   }
 }
 

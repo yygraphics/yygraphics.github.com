@@ -647,7 +647,8 @@ media query
     width: 100%;
     height: initial;
     padding: initial;
-    overflow-y: initial;
+    overflow-y: scroll; 
+    -webkit-overflow-scrolling: touch;
   }
 
   #logo {

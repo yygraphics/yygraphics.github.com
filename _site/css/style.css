@@ -615,7 +615,6 @@ color mode selector
   color: rgba(17,17,17,0.5);
 }
 
-
 /*
 media query
 */
@@ -643,7 +642,8 @@ media query
 }
 
 @media screen and (max-width: 840px) {
-	#gnb {
+
+  #gnb {
     width: 100%;
     height: initial;
     padding: initial;
@@ -681,6 +681,7 @@ media query
 	#content-container {
 		margin-left: initial;
     padding: 24px 0 0 0;
+    -webkit-overflow-scrolling: touch;
 	}
 
   #index-container {

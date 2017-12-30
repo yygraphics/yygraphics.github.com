@@ -129,50 +129,30 @@ function windowResize() {
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-	document.ontouchmove = function ( event ) {
-
-		var isTouchMoveAllowed = true, target = event.target;
-
-		while ( target !== null ) {
-			if ( target.classList && target.classList.contains( 'disable-scrolling' ) ) {
-				isTouchMoveAllowed = false;
-				break;
-			}
-			target = target.parentNode;
+// 모바일에서 네비게이션 영역의 스크롤 문제(rubber band) 해결
+document.ontouchmove = function ( event ) {
+	var isTouchMoveAllowed = true, target = event.target;
+	while ( target !== null ) {
+		if ( target.classList && target.classList.contains( 'disable-scrolling' ) ) {
+			isTouchMoveAllowed = false;
+			break;
 		}
-
-		if ( !isTouchMoveAllowed ) {
-			event.preventDefault();
-		}
-
-	};
-
-	function removeIOSRubberEffect( element ) {
-
-		element.addEventListener( "touchstart", function () {
-
-			var top = element.scrollTop, totalScroll = element.scrollHeight, currentScroll = top + element.offsetHeight;
-
-			if ( top === 0 ) {
-				element.scrollTop = 1;
-			} else if ( currentScroll === totalScroll ) {
-				element.scrollTop = top - 1;
-			}
-
-		} );
-
+		target = target.parentNode;
 	}
+	if ( !isTouchMoveAllowed ) {
+		event.preventDefault();
+	}
+};
 
-	removeIOSRubberEffect( document.querySelector( "#gnb" ) );
+function removeIOSRubberEffect( element ) {
+	element.addEventListener( "touchstart", function () {
+		var top = element.scrollTop, totalScroll = element.scrollHeight, currentScroll = top + element.offsetHeight;
+		if ( top === 0 ) {
+			element.scrollTop = 1;
+		} else if ( currentScroll === totalScroll ) {
+			element.scrollTop = top - 1;
+		}
+	} );
+}
+removeIOSRubberEffect( document.querySelector( "#gnb" ) );
 

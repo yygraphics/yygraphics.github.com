@@ -46,6 +46,7 @@ function naviToggle() {
 		gnb.classList.add(colorMode);
 		bg.style.overflowY = "hidden";
 		contentContainer.ontouchmove = function(e){ e.preventDefault(); }
+		gnb.ontouchmove = function(e){ return true; }
 	} else {
 		toggleOn = false;
 		naviContainer.style.display = "none";
@@ -53,6 +54,7 @@ function naviToggle() {
 		gnb.classList.remove(colorMode);
 		bg.style.overflowY = "initial";
 		contentContainer.ontouchmove = function(e){ return true; }
+		gnb.ontouchmove = function(e){ e.preventDefault(); }
 	}
 }
 

@@ -10,6 +10,7 @@ var windowWidth = window.innerWidth;
 var meetusEmoji; 
 var colorMode;
 var naviContainer = document.getElementById("navi-container");
+var contentContainer = document.getElementById("content-container");
 var toggleOn = false;
 
 // 시간에 따른 사이트 컬러 및 구성요소 변경
@@ -44,11 +45,13 @@ function naviToggle() {
 		naviContainer.style.display = "block";
 		gnb.style.height = "100%";
 		gnb.classList.add(colorMode);
+		bg.style.overflowY = "hidden";
 	} else {
 		toggleOn = false;
 		naviContainer.style.display = "none";
 		gnb.style.height = "initial";
 		gnb.classList.remove(colorMode);
+		bg.style.overflowY = "initial";
 	}
 }
 
@@ -103,9 +106,11 @@ function windowResize() {
 	if (windowWidth > 840) {
 		naviContainer.style.display = "block";
 		gnb.style.height = "100%";
+		bg.style.overflowY = "initial";
 		toggleOn = false;
 	} else if (windowWidth <= 840 && toggleOn === false) {
 		naviContainer.style.display = "none";
 		gnb.style.height = "initial";
+		bg.style.overflowY = "initial";
 	}
 }

@@ -45,14 +45,14 @@ function naviToggle() {
 		gnb.style.height = "100%";
 		gnb.classList.add(colorMode);
 		bg.style.overflowY = "hidden";
-		bg.ontouchmove = function(e){ e.preventDefault(); }
+		contentContainer.ontouchmove = function(e){ e.preventDefault(); }
 	} else {
 		toggleOn = false;
 		naviContainer.style.display = "none";
 		gnb.style.height = "initial";
 		gnb.classList.remove(colorMode);
 		bg.style.overflowY = "initial";
-		bg.ontouchmove = function(e){ return true; }
+		contentContainer.ontouchmove = function(e){ return true; }
 	}
 }
 

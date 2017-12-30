@@ -45,12 +45,14 @@ function naviToggle() {
 		gnb.style.height = "100%";
 		gnb.classList.add(colorMode);
 		bg.style.overflowY = "hidden";
+		document.ontouchmove = function(e){ e.preventDefault(); }
 	} else {
 		toggleOn = false;
 		naviContainer.style.display = "none";
 		gnb.style.height = "initial";
 		gnb.classList.remove(colorMode);
 		bg.style.overflowY = "initial";
+		document.ontouchmove = function(e){ return true; }
 	}
 }
 
@@ -109,7 +111,7 @@ function windowResize() {
 
 	//커스텀 스크롤 관련
 	psToggle();
-	
+
 	//포스트 페이지의 레이아웃 관련
 	if (typeof(postInfo) != 'undefined' && postInfo != null) {	
 		visiblePoint = postTitle.offsetTop+40;

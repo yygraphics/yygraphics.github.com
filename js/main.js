@@ -45,16 +45,12 @@ function naviToggle() {
 		gnb.style.height = "100%";
 		gnb.classList.add(colorMode);
 		bg.style.overflowY = "hidden";
-		contentContainer.ontouchmove = function(e){ e.preventDefault(); }
-		gnb.ontouchmove = function(e){ return true; }
 	} else {
 		toggleOn = false;
 		naviContainer.style.display = "none";
 		gnb.style.height = "initial";
 		gnb.classList.remove(colorMode);
 		bg.style.overflowY = "initial";
-		contentContainer.ontouchmove = function(e){ return true; }
-		gnb.ontouchmove = function(e){ e.preventDefault(); }
 	}
 }
 
@@ -132,3 +128,51 @@ function windowResize() {
 		bg.style.overflowY = "initial";
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+	document.ontouchmove = function ( event ) {
+
+		var isTouchMoveAllowed = true, target = event.target;
+
+		while ( target !== null ) {
+			if ( target.classList && target.classList.contains( 'disable-scrolling' ) ) {
+				isTouchMoveAllowed = false;
+				break;
+			}
+			target = target.parentNode;
+		}
+
+		if ( !isTouchMoveAllowed ) {
+			event.preventDefault();
+		}
+
+	};
+
+	function removeIOSRubberEffect( element ) {
+
+		element.addEventListener( "touchstart", function () {
+
+			var top = element.scrollTop, totalScroll = element.scrollHeight, currentScroll = top + element.offsetHeight;
+
+			if ( top === 0 ) {
+				element.scrollTop = 1;
+			} else if ( currentScroll === totalScroll ) {
+				element.scrollTop = top - 1;
+			}
+
+		} );
+
+	}
+
+	removeIOSRubberEffect( document.querySelector( "#gnb" ) );
+

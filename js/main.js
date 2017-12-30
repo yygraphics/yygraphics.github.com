@@ -1,17 +1,18 @@
-var day = new Date();
-var time = day.getHours();
+var day = new Date(); //컬러모드 변경에 필요한 시간 
+var time = day.getHours(); //컬러모드 변경에 필요한 시간 
 
 var bg = document.body;
 var postInfo = document.getElementById("post-info");
 var gnb = document.getElementById("gnb");
 var postTitle = document.getElementById("post-title");
 var altTitle = document.getElementById("post-alt-title");
-var windowWidth = window.innerWidth;
-var meetusEmoji; 
-var colorMode;
+var windowWidth = window.innerWidth; // 화면 넓이 정의
+var meetusEmoji; // 로고 옆 이모지
+var colorMode;  // 사이트 컬러모드 변경
 var naviContainer = document.getElementById("navi-container");
 var contentContainer = document.getElementById("content-container");
 var toggleOn = false;
+var ps; // 커스텀 스크롤바
 
 // 시간에 따른 사이트 컬러 및 구성요소 변경
 if (time >= 7 && time < 18) {
@@ -34,9 +35,7 @@ if (time >= 7 && time < 18) {
 	meetusMessage = "역시 저녁에는 맥주입니다";
 }
 document.getElementById("meetus").appendChild(meetusEmoji); //헤더에 이모지 붙이기
-
-// gnb에 커스텀 스크롤
-new PerfectScrollbar("#gnb");
+psToggle(); // gnb 영역 커스텀 스크롤 호출
 
 // 모바일에서 네비게이션 토글 열고 닫기
 function naviToggle() {
@@ -76,6 +75,17 @@ function gnbRemove() {
 	}
 }
 
+// gnb에 커스텀 스크롤 호출 함수
+function psToggle() {
+	if (windowWidth > 840) {
+		if (ps) ps.destroy();
+		ps = new PerfectScrollbar("#gnb");
+	} else {
+		if (ps) ps.destroy();
+		ps = null;
+	}
+}
+
 //포스트 페이지 알트 헤더 보이게 만드는 함수
 function showAltTitle() {
 	if (window.pageYOffset >= visiblePoint && windowWidth <= 1450) {
@@ -96,6 +106,10 @@ function meetus() {
 // 화면사이즈 변경되면 레이아웃 갱신하는 함수
 function windowResize() {
 	windowWidth = window.innerWidth;
+
+	//커스텀 스크롤 관련
+	psToggle();
+	
 	//포스트 페이지의 레이아웃 관련
 	if (typeof(postInfo) != 'undefined' && postInfo != null) {	
 		visiblePoint = postTitle.offsetTop+40;

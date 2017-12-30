@@ -163,7 +163,6 @@ post-page - info
 
 #post-info {
 	margin-bottom: 40px;
-  border-top: 2px solid rgba(153,153,153,0.3);
 }
 
 .info-section {
@@ -175,10 +174,6 @@ post-page - info
 .info-section:last-child, .info-section:first-child {
   border-bottom: none;
   margin-bottom: 0;
-}
-
-.info-section:first-child {
-  padding-top: 20px;
 }
 
 #post-alt-title {
@@ -652,6 +647,7 @@ media query
     width: 100%;
     height: initial;
     padding: initial;
+    overflow-y: initial;
   }
 
   #logo {

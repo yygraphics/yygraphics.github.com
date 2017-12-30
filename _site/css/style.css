@@ -626,7 +626,10 @@ media query
 */
 
 @media screen and (max-width: 1450px) {
-	#post-container {
+	#navi-container {
+    display: block;
+  }
+  #post-container {
 		margin: initial;
     padding: 0 32px;
 	}

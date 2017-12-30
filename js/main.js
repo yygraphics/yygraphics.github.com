@@ -39,7 +39,7 @@ new PerfectScrollbar("#gnb");
 
 // 모바일에서 네비게이션 토글 열고 닫기
 function naviToggle() {
-	if (toggleOn === false && windowWidth <= 840) {
+	if (toggleOn === false) {
 		toggleOn = true;
 		naviContainer.style.display = "block";
 		gnb.style.height = "100%";
@@ -73,7 +73,7 @@ function gnbRemove() {
 	}
 }
 
-//알트타이틀 보이게 만드는 함수
+//포스트 페이지 알트 헤더 보이게 만드는 함수
 function showAltTitle() {
 	if (window.pageYOffset >= visiblePoint && windowWidth <= 1450) {
 		altTitle.style.display = "block";
@@ -93,10 +93,19 @@ function meetus() {
 // 화면사이즈 변경되면 레이아웃 갱신하는 함수
 function windowResize() {
 	windowWidth = window.innerWidth;
-	//naviToggle();
+	//포스트 페이지의 레이아웃 관련
 	if (typeof(postInfo) != 'undefined' && postInfo != null) {	
 		visiblePoint = postTitle.offsetTop+40;
 		gnbRemove();
 		showAltTitle();
+	}
+	//미디어 쿼리에 따른 gnb-navi 영역 컨트롤
+	if (windowWidth > 840) {
+		naviContainer.style.display = "block";
+		gnb.style.height = "100%";
+		toggleOn = false;
+	} else if (windowWidth <= 840 && toggleOn === false) {
+		naviContainer.style.display = "none";
+		gnb.style.height = "initial";
 	}
 }

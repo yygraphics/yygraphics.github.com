@@ -276,7 +276,7 @@ etc
   height: 100vh;
   position: fixed;
   z-index: 80;
-
+  overflow-y: hidden;
     -webkit-animation: dim 0.2s ease-out;
   -moz-animation: dim 0.2s ease-out;
   -ms-animation: dim 0.2s ease-out;

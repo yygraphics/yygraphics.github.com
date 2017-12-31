@@ -203,4 +203,6 @@ function removeIOSRubberEffect( element ) {
 	} );
 }
 removeIOSRubberEffect( document.querySelector( "#gnb" ) );
+removeIOSRubberEffect( document.querySelector( ".dim" ) );
+removeIOSRubberEffect( document.querySelector( ".gnb-bg" ) );
 

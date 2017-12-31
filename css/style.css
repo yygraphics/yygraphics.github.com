@@ -12,13 +12,14 @@ gnb
   z-index: 90;
 }
 
-.gnb-bg {
+#gnb-bg {
   position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
-  z-index: -1;
   overflow-y: hidden;
+  background-color: #111;
+  display: none;
 }
 
 #logo {
@@ -280,7 +281,6 @@ etc
   width: 100vw;
   height: 100vh;
   position: fixed;
-  z-index: 80;
   overflow-y: hidden;
     -webkit-animation: dim 0.2s ease-out;
   -moz-animation: dim 0.2s ease-out;
@@ -719,7 +719,7 @@ media query
     transition: width .2s ease-in-out;
   }
   
-  .gnb-bg {
+  #gnb-bg {
     width: 45%;
     min-width: 300px;
     transition: width .2s ease-in-out;
@@ -798,7 +798,7 @@ media query
     width: 100%;
     min-width: initial;
   }
-  .gnb-bg {
+  #gnb-bg {
     width: 100%;
     min-width: 300px;
   }

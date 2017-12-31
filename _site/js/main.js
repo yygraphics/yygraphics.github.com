@@ -136,6 +136,7 @@ function naviToggle() {
 		naviContainer.style.display = "block";
 		naviContainer.classList.add("animation-gnbcontent");
 		toggleOn = true;
+		document.getElementById("gnb-bg").style.display = "block";
 	} else {
 		removeDim();
 		//removeGnbBg();
@@ -144,13 +145,14 @@ function naviToggle() {
 		naviContainer.style.display = "none";
 		naviContainer.classList.remove("animation-gnbcontent");
 		toggleOn = false;
+		document.getElementById("gnb-bg").style.display = "none";
 	}
 }
 
 // 네비게이션 토글될 떄 gnb 백그라운드
 function addGnbBg() {
 	gnbBg = document.createElement("div");
-	gnbBg.classList.add("gnb-bg");
+	gnbBg.id = "gnb-bg";
 	gnbBg.classList.add(gnbBgColor);
 	gnbBg.classList.add("animation-rightward");
 	gnb.appendChild(gnbBg);

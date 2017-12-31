@@ -17,6 +17,7 @@ gnb
   width: 100%;
   height: 100%;
   top: 0;
+  z-index: -1;
   overflow-y: hidden;
 }
 
@@ -279,7 +280,7 @@ etc
   width: 100vw;
   height: 100vh;
   position: fixed;
-  
+  z-index: 80;
   overflow-y: hidden;
     -webkit-animation: dim 0.2s ease-out;
   -moz-animation: dim 0.2s ease-out;
@@ -728,7 +729,6 @@ media query
     width: 100%;
     height: initial;
     padding: 24px 0;
-    z-index: 100;
   }
 
   #logo a {
@@ -741,13 +741,11 @@ media query
   
   #navi-toggle {
     display: block;
-    z-index: 90;
   }
 
   #navi-container {
 		display: none;
     padding: 0 16px;
-    z-index: 90;
 	}
 
   .work-li {

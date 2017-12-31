@@ -13,10 +13,6 @@ var naviContainer = document.getElementById("navi-container");
 var contentContainer = document.getElementById("content-container");
 var toggleOn = false;
 var ps; // 커스텀 스크롤바
-var gnbBg; //모바일 gnb 영역 bg
-var gnbBgColor; //모바일 gnb 영역 bg의 컬러
-var dim; // dim
-var dimColor // dim의 컬러
 
 // 시간에 따른 사이트 컬러 및 구성요소 변경
 if (time >= 7 && time < 18) {
@@ -24,26 +20,39 @@ if (time >= 7 && time < 18) {
 	bg.className = colorMode;
 	meetusEmoji = document.createTextNode("☕");	
 	meetusMessage = "커피 한잔 고고고";
-	dimColor = "positive-dim";
-	gnbBgColor = "positive"
 } else {
 	colorMode = "negative";
 	bg.className = colorMode;
 	document.getElementById("logo-svg").style.fill="rgb(230,230,230)"; //logo 색 변경
 	
 	if (typeof(postInfo) != 'undefined' && postInfo != null) {
-		document.getElementById("prev-icon").style.fill="rgb(230,230,230)";
-		document.getElementById("next-icon").style.fill="rgb(230,230,230)";
-		document.getElementById("index-icon").style.fill="rgb(230,230,230)";
+		document.getElementById("prev-icon").src="../images/left-angle-bracket-light.svg"; //icon 변경
+		document.getElementById("next-icon").src="../images/right-angle-bracket-light.svg"; //icon 변경
+		document.getElementById("index-icon").src="../images/grid-layout-light.svg"; //icon 변경
 		document.getElementById("post-alt-title").style.borderTopColor="rgb(230,230,230)"; //알트헤더 보더 색 변경
 	}
 	meetusEmoji = document.createTextNode("🍺");
 	meetusMessage = "역시 저녁에는 맥주입니다";
-	dimColor = "negative-dim";
-	gnbBgColor = "negative";
 }
 document.getElementById("meetus").appendChild(meetusEmoji); //헤더에 이모지 붙이기
 psToggle(); // gnb 영역 커스텀 스크롤 호출
+
+// 모바일에서 네비게이션 토글 열고 닫기
+function naviToggle() {
+	if (toggleOn === false) {
+		toggleOn = true;
+		naviContainer.style.display = "block";
+		gnb.style.height = "100%";
+		gnb.classList.add(colorMode);
+		bg.style.overflowY = "hidden";
+	} else {
+		toggleOn = false;
+		naviContainer.style.display = "none";
+		gnb.style.height = "initial";
+		gnb.classList.remove(colorMode);
+		bg.style.overflowY = "initial";
+	}
+}
 
 // post page layout control
 if (typeof(postInfo) != 'undefined' && postInfo != null) {	
@@ -113,67 +122,10 @@ function windowResize() {
 		gnb.style.height = "100%";
 		bg.style.overflowY = "initial";
 		toggleOn = false;
-		removeDim();
-		removeGnbBg()
-		naviContainer.classList.remove("animation-gnbcontent");
 	} else if (windowWidth <= 840 && toggleOn === false) {
 		naviContainer.style.display = "none";
 		gnb.style.height = "initial";
 		bg.style.overflowY = "initial";
-		removeDim();
-		removeGnbBg()
-		naviContainer.classList.remove("animation-gnbcontent");
-	}
-}
-
-// 모바일에서 네비게이션 토글 열고 닫기
-function naviToggle() {
-	if (toggleOn === false) {
-		addDim();
-		addGnbBg();
-		gnb.style.height = "100%";
-		bg.style.overflowY = "hidden";
-		naviContainer.style.display = "block";
-		naviContainer.classList.add("animation-gnbcontent");
-		toggleOn = true;
-	} else {
-		removeDim();
-		removeGnbBg();
-		gnb.style.height = "initial";
-		bg.style.overflowY = "initial";
-		naviContainer.style.display = "none";
-		naviContainer.classList.remove("animation-gnbcontent");
-		toggleOn = false;
-	}
-}
-
-// 네비게이션 토글될 떄 gnb 백그라운드
-function addGnbBg() {
-	gnbBg = document.createElement("div");
-	gnbBg.classList.add("gnb-bg");
-	gnbBg.classList.add(gnbBgColor);
-	gnbBg.classList.add("animation-rightward");
-	gnb.appendChild(gnbBg);
-}
-
-function removeGnbBg() {
-	if (typeof(gnbBg) != 'undefined' && gnbBg != null) {	
-		gnb.removeChild(gnbBg);
-		gnbBg = undefined;
-	}
-}
-
-// 네비게이션 토글될 때 백그라운드 dim 처리
-function addDim() {
-	dim = document.createElement("div");
-	dim.id = "dim";
-	dim.classList.add(dimColor);
-	contentContainer.insertBefore(dim, contentContainer.childNodes[0]);
-}
-function removeDim() {
-	if (typeof(dim) != 'undefined' && dim != null) {	
-		contentContainer.removeChild(dim);
-		dim = undefined;
 	}
 }
 
@@ -203,3 +155,4 @@ function removeIOSRubberEffect( element ) {
 	} );
 }
 removeIOSRubberEffect( document.querySelector( "#gnb" ) );
+

@@ -18,6 +18,7 @@ gnb
   height: 100%;
   top: 0;
   z-index: -1;
+  overflow-y: hidden;
 }
 
 #logo {

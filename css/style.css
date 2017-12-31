@@ -12,6 +12,14 @@ gnb
   z-index: 90;
 }
 
+.gnb-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: -1;
+}
+
 #logo {
 	width: 248px;
 	height: 72px;
@@ -57,7 +65,8 @@ gnb
 
 #navi-toggle {
   margin-right: 16px;
-  float: right;
+  position: fixed;
+  right: 0; 
   display: none;
 }
 
@@ -77,6 +86,11 @@ index page
 
 #index-container {
   padding: 80px 24px 0 24px;
+  -webkit-animation: fadein 0.5s ease-out;
+  -moz-animation: fadein 0.5s ease-out;
+  -ms-animation: fadein 0.5s ease-out;
+  -o-animation: fadein 0.5s ease-out;
+  animation: fadein 0.5s ease-out;
 }
 
 #decoration {
@@ -257,17 +271,58 @@ etc
 	clear:both;
 }
 
+.dim {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 80;
+
+    -webkit-animation: dim 0.2s ease-out;
+  -moz-animation: dim 0.2s ease-out;
+  -ms-animation: dim 0.2s ease-out;
+  -o-animation: dim 0.2s ease-out;
+  animation: dim 0.2s ease-out;
+}
+
+
 /*
 animation and transition
 */
 
-.animation-fadein {
-	-webkit-animation: fadein 1s ease-out;
-	-moz-animation: fadein 1s ease-out;
-	-ms-animation: fadein 1s ease-out;
-	-o-animation: fadein 1s ease-out;
-	animation: fadein 1s ease-out;
 
+@-webkit-keyframes dim {
+  from {opacity:0;}
+  to {opacity:0.8;}
+}
+
+@-moz-keyframes dim {
+  from {opacity:0;}
+  to {opacity:0.8;}
+}
+
+@-ms-keyframes dim {
+  from {opacity:0;}
+  to {opacity:0.8;}
+}
+
+@-o-keyframes dim {
+  from {opacity:0;}
+  to {opacity:0.8;}
+}
+
+@keyframes dim {
+  from {opacity:0;}
+  to {opacity:0.8;}
+}
+
+.animation-gnbcontent {
+  position: relative;
+
+  -webkit-animation: rightward 0.35s ease-out, fadein 0.5s cubic-bezier(0.47, 0, 0.75, 0.72);;
+  -moz-animation: rightward 0.35s ease-out, fadein 0.5s cubic-bezier(0.47, 0, 0.75, 0.72);;
+  -ms-animation: rightward 0.35s ease-out, fadein 0.5s cubic-bezier(0.47, 0, 0.75, 0.72);;
+  -o-animation: rightward 0.35s ease-out, fadein 0.5s cubic-bezier(0.47, 0, 0.75, 0.72);;
+  animation: rightward 0.35s ease-out, fadein 0.5s cubic-bezier(0.47, 0, 0.75, 0.72);;
 }
 
 @-webkit-keyframes fadein {
@@ -295,48 +350,14 @@ animation and transition
   to {opacity:1;}
 }
 
-.animation-fadeout {
-  -webkit-animation: fadeout 1s ease-out;
-  -moz-animation: fadeout 1s ease-out;
-  -ms-animation: fadeout 1s ease-out;
-  -o-animation: fadeout 1s ease-out;
-  animation: fadeout 1s ease-out;
-
-}
-
-@-webkit-keyframes fadeout {
-  from {opacity:1;}
-  to {opacity:0;}
-}
-
-@-moz-keyframes fadeout {
-  from {opacity:1;}
-  to {opacity:0;}
-}
-
-@-ms-keyframes fadeout {
-  from {opacity:1;}
-  to {opacity:0;}
-}
-
-@-o-keyframes fadeout {
-  from {opacity:1;}
-  to {opacity:0;}
-}
-
-@keyframes fadeout {
-  from {opacity:1;}
-  to {opacity:0;}
-}
-
 .animation-upward {
 	position: relative;
 
-	-webkit-animation: upward 1s ease-out;
-	-moz-animation: upward 1s ease-out;
-	-ms-animation: upward 1s ease-out;
-	-o-animation: upward 1s ease-out;
-	animation: upward 1s ease-out;
+	-webkit-animation: upward 0.7s ease-out;
+	-moz-animation: upward 0.7s ease-out;
+	-ms-animation: upward 0.7s ease-out;
+	-o-animation: upward 0.7s ease-out;
+	animation: upward 0.7s ease-out;
 }
 
 @-webkit-keyframes upward {
@@ -365,11 +386,11 @@ animation and transition
 }
 
 .animation-downward {
-  -webkit-animation: downward .5s ease-out;
-  -moz-animation: downward .5s ease-out;
-  -ms-animation: downward .5s ease-out;
-  -o-animation: downward .5s ease-out;
-  animation: downward .5s ease-out;
+  -webkit-animation: downward 0.5s ease-out;
+  -moz-animation: downward 0.5s ease-out;
+  -ms-animation: downward 0.5s ease-out;
+  -o-animation: downward 0.5s ease-out;
+  animation: downward 0.5s ease-out;
 }
 
 @-webkit-keyframes downward {
@@ -395,6 +416,39 @@ animation and transition
 @keyframes downward {
   from {opacity:0; top:0px;}
   to {opacity:1; top:32px;}
+}
+
+.animation-rightward {
+  -webkit-animation: rightward 0.25s ease-in-out, fadein 0.25s ease-in-out;
+  -moz-animation: rightward 0.25s ease-in-out, fadein 0.25s ease-in-out;
+  -ms-animation: rightward 0.25s ease-in-out, fadein 0.25s ease-in-out;
+  -o-animation: rightward 0.25s ease-in-out, fadein 0.25s ease-in-out;
+  animation: rightward 0.25s ease-in-out, fadein 0.25s ease-in-out;
+}
+
+@-webkit-keyframes rightward {
+  from {left:-200px;}
+  to {left:0px;}
+}
+
+@-moz-keyframes rightward {
+  from {left:-200px;}
+  to {left:0px;}
+}
+
+@-ms-keyframes rightward {
+  from {left:-200px;}
+  to {left:0px;}
+}
+
+@-o-keyframes rightward {
+  from {left:-200px;}
+  to {left:0px;}
+}
+
+@keyframes rightward {
+  from {left:-200px;}
+  to {left:0px;}
 }
 
 /*
@@ -521,7 +575,7 @@ bricklayer css
   display: none;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 480px) {
   .bricklayer-column-sizer {
     width: 50%;
   }
@@ -615,6 +669,14 @@ color mode selector
   color: rgba(17,17,17,0.5);
 }
 
+.negative-dim {
+  background-color: rgba(5,5,5,0.8);
+}
+
+.positive-dim {
+  background-color: rgba(236,236,236,0.8);
+}
+
 /*
 media query
 */
@@ -642,13 +704,20 @@ media query
 }
 
 @media screen and (max-width: 840px) {
-
   #gnb {
-    width: 100%;
+    width: 45%;
+    min-width: 300px;
     height: initial;
     padding: initial;
     overflow-y: scroll; 
     -webkit-overflow-scrolling: touch;
+    transition: width .2s ease-in-out;
+  }
+  
+  .gnb-bg {
+    width: 45%;
+    min-width: 300px;
+    transition: width .2s ease-in-out;
   }
 
   #logo {
@@ -680,12 +749,12 @@ media query
 
 	#content-container {
 		margin-left: initial;
-    padding: 24px 0 0 0;
+    padding: 0;
     -webkit-overflow-scrolling: touch;
 	}
 
   #index-container {
-    padding: 56px 8px 0 8px;
+    padding: 80px 8px 0 8px;
   }
 
   #post-container {
@@ -715,3 +784,13 @@ media query
   }
 }
 
+@media screen and (max-width: 480px) {
+  #gnb {
+    width: 100%;
+    min-width: initial;
+  }
+  .gnb-bg {
+    width: 100%;
+    min-width: 300px;
+  }
+}

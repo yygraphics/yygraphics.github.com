@@ -13,7 +13,7 @@ var naviContainer = document.getElementById("navi-container");
 var contentContainer = document.getElementById("content-container");
 var toggleOn = false;
 var ps; // 커스텀 스크롤바
-var gnbBg; //모바일 gnb 영역 bg
+var gnbBg = document.getElementById("gnb-bg"); //모바일 gnb 영역 bg
 var gnbBgColor; //모바일 gnb 영역 bg의 컬러
 var dim; // dim
 var dimColor // dim의 컬러
@@ -114,14 +114,14 @@ function windowResize() {
 		bg.style.overflowY = "initial";
 		toggleOn = false;
 		removeDim();
-		//removeGnbBg()
+		removeGnbBg()
 		naviContainer.classList.remove("animation-gnbcontent");
 	} else if (windowWidth <= 840 && toggleOn === false) {
 		naviContainer.style.display = "none";
 		gnb.style.height = "initial";
 		bg.style.overflowY = "initial";
 		removeDim();
-		//removeGnbBg()
+		removeGnbBg()
 		naviContainer.classList.remove("animation-gnbcontent");
 	}
 }
@@ -130,39 +130,34 @@ function windowResize() {
 function naviToggle() {
 	if (toggleOn === false) {
 		addDim();
-		//addGnbBg();
+		addGnbBg();
 		gnb.style.height = "100%";
 		bg.style.overflowY = "hidden";
 		naviContainer.style.display = "block";
 		naviContainer.classList.add("animation-gnbcontent");
 		toggleOn = true;
-		document.getElementById("gnb-bg").style.display = "block";
 	} else {
 		removeDim();
-		//removeGnbBg();
+		removeGnbBg();
 		gnb.style.height = "initial";
 		bg.style.overflowY = "initial";
 		naviContainer.style.display = "none";
 		naviContainer.classList.remove("animation-gnbcontent");
 		toggleOn = false;
-		document.getElementById("gnb-bg").style.display = "none";
 	}
 }
 
 // 네비게이션 토글될 떄 gnb 백그라운드
 function addGnbBg() {
-	gnbBg = document.createElement("div");
-	gnbBg.id = "gnb-bg";
+	gnbBg.style.display = "block";
 	gnbBg.classList.add(gnbBgColor);
 	gnbBg.classList.add("animation-rightward");
-	gnb.appendChild(gnbBg);
 }
 
 function removeGnbBg() {
-	if (typeof(gnbBg) != 'undefined' && gnbBg != null) {	
-		gnb.removeChild(gnbBg);
-		gnbBg = undefined;
-	}
+	gnbBg.classList.remove(gnbBgColor);
+	gnbBg.classList.remove("animation-rightward");
+	gnbBg.style.display = "none";
 }
 
 // 네비게이션 토글될 때 백그라운드 dim 처리

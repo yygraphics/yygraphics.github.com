@@ -755,10 +755,12 @@ media query
 		margin-left: initial;
     padding: 0;
     -webkit-overflow-scrolling: touch;
+    z-index: -1;
 	}
 
   #index-container {
     padding: 80px 8px 0 8px;
+    z-index: -1;
   }
 
   #post-container {

@@ -755,7 +755,6 @@ media query
 		margin-left: initial;
     padding: 0;
     -webkit-overflow-scrolling: touch;
-    z-index: -1;
 	}
 
   #index-container {
@@ -770,6 +769,7 @@ media query
   #siteinfo-container {
     padding: 0 16px;
     padding-top: 96px;
+    z-index: -1;
   }
   
   #info-container {

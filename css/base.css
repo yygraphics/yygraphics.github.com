@@ -18,7 +18,11 @@ svg {
 
 li {
 	list-style: none;
-	margin-top: 1.2rem;
+	margin-bottom: 1.2rem;
+}
+
+li:last-child {
+	margin-bottom: 0;
 }
 
 img {
@@ -39,9 +43,11 @@ button:focus {
 	outline: 0;
 }
 
-.disable-button {
-	opacity: 0.2;
-	cursor: not-allowed;
+::selection {
+  background: #ccc; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #ccc; /* Gecko Browsers */
 }
 
 /*
@@ -88,7 +94,7 @@ big {
 }
 
 p {
-	line-height: 2.2rem;
+	line-height: 2.3rem;
 }
 
 strong {

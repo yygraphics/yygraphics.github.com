@@ -1,4 +1,17 @@
 /*
+general
+*/
+
+.disable-button {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.h-spacer {
+  margin-bottom: 1.6rem;
+}
+
+/*
 gnb
 */
 
@@ -61,7 +74,8 @@ gnb
 #meetus {
   position: absolute;
   left: 186px;
-  font-size: 2.4rem;
+  font-size: 2.5rem;
+  margin-left: 4px;
 }
 
 #navi-toggle {
@@ -152,7 +166,7 @@ post page - body
 }
 
 #post-body p{
-	max-width: 560px;
+	max-width: 480px;
 	margin: 0 auto;
 }
 
@@ -192,7 +206,7 @@ post-page - info
 }
 
 #post-alt-title {
-  max-width: 560px;
+  max-width: 480px;
   display: none;
   position: fixed;
   z-index: 90;
@@ -237,24 +251,26 @@ about & contact page
 	margin: 0 auto;
 }
 
+.siteinfo-headline {
+  max-width: 480px;
+  margin: 0 auto;
+  margin-bottom: 32px;
+}
+
 .siteinfo-text {
-	max-width: 560px;
+	max-width: 480px;
 	margin: 0 auto;
 	padding-bottom: 24px;
 	margin-bottom: 24px;
 	border-bottom: 1px solid rgba(153,153,153,0.3);
 }
 
-.siteinfo-text:first-child, .siteinfo-text:last-child {
+.siteinfo-text:last-child {
 	border-bottom: none;
 }
 
-.siteinfo-text:first-child {
-  padding-bottom: 0;
-}
-
 .siteinfo-text p {
-  padding-bottom: 12px;
+  padding-bottom: 1.6rem;
 }
 
 .siteinfo-text p:last-child {
@@ -264,6 +280,14 @@ about & contact page
 .personal-contact {
 	width: 50%;
 	float: left;
+}
+
+.yul:hover {
+  color: red;
+}
+
+.youtak:hover {
+  color: blue;
 }
 
 /*
@@ -293,6 +317,9 @@ etc
 animation and transition
 */
 
+.scroll-effect h5, .scroll-effect h4, .scroll-effect h5 a {
+  color: red;
+}
 
 @-webkit-keyframes dim {
   from {opacity:0;}
@@ -701,7 +728,7 @@ media query
 	#info-container {
 		position: static;
 		width: initial;
-		max-width: 560px;
+		max-width: 480px;
 		margin: 0 auto;
 		margin-bottom: 32px;
 	}
@@ -759,6 +786,7 @@ media query
 
   #index-container {
     padding: 80px 8px 0 8px;
+    z-index: -1;
   }
 
   #post-container {
@@ -768,6 +796,7 @@ media query
   #siteinfo-container {
     padding: 0 16px;
     padding-top: 96px;
+    z-index: -1;
   }
   
   #info-container {
@@ -778,7 +807,7 @@ media query
     padding: 0 16px;
   }
 	
-  #info-container, #post-body p, .siteinfo-text {
+  #info-container, #post-body p, .siteinfo-text, .siteinfo-headline {
 		max-width: initial;
 	}
 

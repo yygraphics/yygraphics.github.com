@@ -17,19 +17,25 @@ var gnbBg = document.getElementById("gnb-bg"); //모바일 gnb 영역 bg
 var gnbBgColor; //모바일 gnb 영역 bg의 컬러
 var dim; // dim
 var dimColor // dim의 컬러
+var logo = document.getElementById("logo-svg");
+var logoColor;
+var scrollTimer = -1;
 
 // 시간에 따른 사이트 컬러 및 구성요소 변경
 if (time >= 7 && time < 18) {
 	colorMode = "positive";
-	bg.className = colorMode;
+	bg.className = colorMode; // bg 색 변경
+	logoColor = "rgb(17,17,17)";
+	logo.style.fill = logoColor; //logo 색 변경
 	meetusEmoji = document.createTextNode("☕");	
 	meetusMessage = "커피 한잔 고고고";
 	dimColor = "positive-dim";
 	gnbBgColor = "positive"
 } else {
 	colorMode = "negative";
-	bg.className = colorMode;
-	document.getElementById("logo-svg").style.fill="rgb(230,230,230)"; //logo 색 변경
+	bg.className = colorMode; //bg 색 변경
+	logoColor = "rgb(230,230,230)";
+	logo.style.fill = logoColor; //logo 색 변경
 	
 	if (typeof(postInfo) != 'undefined' && postInfo != null) {
 		document.getElementById("prev-icon").style.fill="rgb(230,230,230)";
@@ -168,35 +174,57 @@ function addDim() {
 	contentContainer.insertBefore(dim, contentContainer.childNodes[0]);
 }
 function removeDim() {
-	if (typeof(dim) != 'undefined' && dim != null) {	
+	if (typeof(dim) != "undefined" && dim != null) {	
 		contentContainer.removeChild(dim);
 		dim = undefined;
 	}
 }
 
 // 모바일에서 네비게이션 영역의 스크롤 문제(rubber band) 해결
-document.ontouchmove = function ( event ) {
+document.ontouchmove = function (event) {
 	var isTouchMoveAllowed = true, target = event.target;
-	while ( target !== null ) {
-		if ( target.classList && target.classList.contains( 'disable-scrolling' ) ) {
+	while (target !== null) {
+		if (target.classList && target.classList.contains("disable-scrolling")) {
 			isTouchMoveAllowed = false;
 			break;
 		}
 		target = target.parentNode;
 	}
-	if ( !isTouchMoveAllowed ) {
+	if (!isTouchMoveAllowed) {
 		event.preventDefault();
 	}
 };
 
-function removeIOSRubberEffect( element ) {
-	element.addEventListener( "touchstart", function () {
+function removeIOSRubberEffect(element) {
+	element.addEventListener("touchstart", function () {
 		var top = element.scrollTop, totalScroll = element.scrollHeight, currentScroll = top + element.offsetHeight;
-		if ( top === 0 ) {
+		if (top === 0) {
 			element.scrollTop = 1;
-		} else if ( currentScroll === totalScroll ) {
+		} else if (currentScroll === totalScroll) {
 			element.scrollTop = top - 1;
 		}
 	} );
 }
 removeIOSRubberEffect( document.querySelector( "#gnb" ) );
+
+
+/* 스크롤 할 때 텍스트에 이펙트 넣기
+window.onscroll = function() {bodyScroll()};
+
+function bodyScroll() {
+    //SOMETHING WHEN SCROLL
+    bg.classList.add("scroll-effect");
+    logo.style.fill = "red";
+    
+    if (scrollTimer != -1)
+	    clearTimeout(scrollTimer);
+    scrollTimer = window.setTimeout("scrollFinished()", 500);
+}
+
+function scrollFinished() {
+    //SOMETHING SCROLL FINISHED
+    logo.style.fill = logoColor;
+    bg.classList.remove("scroll-effect");
+}
+
+*/

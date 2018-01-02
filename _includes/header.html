@@ -4,10 +4,16 @@
 <head>
 	<meta charset="UTP=8">
 	<title>{{ site.title }}</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="{{ site.baseurl }}/css/base.css">
 	<link rel="stylesheet" href="{{ site.baseurl }}/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/favicon-16x16.png">
+	<link rel="manifest" href="{{ site.baseurl }}/manifest.json">
+	<link rel="mask-icon" href="{{ site.baseurl }}/safari-pinned-tab.svg" color="#3d3d3d">
+	<meta name="theme-color" content="#111111">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body class="bg-color">
@@ -23,7 +29,7 @@
 			<h5><a href="{{ site.url}}/about">About</a></h5>
 		</div>
 		<div class="navi-section">
-			<h5><a href="{{ site.url }}">Works</a></h5>
+			<h5 class="h-spacer"><a href="{{ site.url }}">Works</a></h5>
 			<ul>
 				{% for post in site.posts %}
 				{% if page.url == post.url %}
@@ -35,7 +41,7 @@
 			</ul>
 		</div>
 		<div class="navi-section">
-			<h5><a href="{{ site.url }}/contact">Contact</a></h5>
+			<h5 class="h-spacer"><a href="{{ site.url }}/contact">Contact</a></h5>
 			<ul>
 				<li class="work-li"><a href="">Yul's Instagram</a></li>
 				<li class="work-li"><a href="">Youtak's Instagram</a></li>

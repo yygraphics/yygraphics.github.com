@@ -1,70 +1,83 @@
-var day = new Date(); //컬러모드 변경에 필요한 시간 
-var time = day.getHours(); //컬러모드 변경에 필요한 시간 
-
 var bg = document.body;
 var postInfo = document.getElementById("post-info");
 var gnb = document.getElementById("gnb");
 var postTitle = document.getElementById("post-title");
 var altTitle = document.getElementById("post-alt-title");
+var naviContainer = document.getElementById("navi-container");
+var contentContainer = document.getElementById("content-container");
+var indexContainer = document.getElementById("index-container");
+
 var windowWidth = window.innerWidth; // 화면 넓이 정의
 var meetusEmoji; // 로고 옆 이모지
 var colorMode;  // 사이트 컬러모드 변경
-var naviContainer = document.getElementById("navi-container");
-var contentContainer = document.getElementById("content-container");
 var toggleOn = false;
 var ps; // 커스텀 스크롤바
 var gnbBg = document.getElementById("gnb-bg"); //모바일 gnb 영역 bg
 var gnbBgColor; //모바일 gnb 영역 bg의 컬러
 var dim; // dim
 var dimColor // dim의 컬러
-var logo = document.getElementById("logo-svg");
-var logoColor;
-var scrollTimer = -1;
+var logo = document.getElementById("logo-svg"); // 로고
+var logoColor; // 로고 컬러
+var scrollTimer = -1; // 스크롤 되는동안 이펙트
+var visiblePoint; // 알트헤더 등장시점
 
-// 시간에 따른 사이트 컬러 및 구성요소 변경
-if (time >= 7 && time < 18) {
-	colorMode = "positive";
-	bg.className = colorMode; // bg 색 변경
-	logoColor = "rgb(17,17,17)";
-	logo.style.fill = logoColor; //logo 색 변경
-	meetusEmoji = document.createTextNode("☕");	
-	meetusMessage = "커피 한잔 고고고";
-	dimColor = "positive-dim";
-	gnbBgColor = "positive"
-} else {
-	colorMode = "negative";
-	bg.className = colorMode; //bg 색 변경
-	logoColor = "rgb(230,230,230)";
-	logo.style.fill = logoColor; //logo 색 변경
-	
-	if (typeof(postInfo) != 'undefined' && postInfo != null) {
-		document.getElementById("prev-icon").style.fill="rgb(230,230,230)";
-		document.getElementById("next-icon").style.fill="rgb(230,230,230)";
-		document.getElementById("index-icon").style.fill="rgb(230,230,230)";
-		document.getElementById("post-alt-title").style.borderTopColor="rgb(230,230,230)"; //알트헤더 보더 색 변경
-	}
-	meetusEmoji = document.createTextNode("🍺");
-	meetusMessage = "역시 저녁에는 맥주입니다";
-	dimColor = "negative-dim";
-	gnbBgColor = "negative";
-}
-document.getElementById("meetus").appendChild(meetusEmoji); //헤더에 이모지 붙이기
+setColorMode(); // 시간에 따른 사이트 컬러 및 구성요소 변경
 psToggle(); // gnb 영역 커스텀 스크롤 호출
+layoutControler(); // 페이지에 따라 화면 요소 visibility 설정
+window.onresize = function() {windowResize()}; // 화면 사이즈 변경될 때 레이아웃도 함께 갱신	
+document.ontouchmove = function touchMove(event); // 모바일 gnb 열었을 때 body 스크롤 막기
+removeIOSRubberEffect(document.querySelector("#gnb")); // 모바일 gnb 스크롤할 때 rubberband effect 없애기
+document.getElementById("meetus").appendChild(meetusEmoji); //헤더에 이모지 붙이기
 
-// post page layout control
-if (typeof(postInfo) != 'undefined' && postInfo != null) {	
-	var visiblePoint = postTitle.offsetTop+40; //알트헤더 등장시점 정의
-	// 화면 로딩될 때 시점으로 gnb display 설정
-	gnbRemove();
-	// 스크롤에 따른 알트헤더 등장여부 설정
-	window.onscroll = function() {showAltTitle()};	
+// 시간에 따라 사이트 색 모드 변경
+function setColorMode() {
+	var day = new Date(); //컬러모드 변경에 필요한 시간 
+	var time = day.getHours(); //컬러모드 변경에 필요한 시간 
+
+	if (time >= 7 && time < 18) {
+		colorMode = "positive";
+		bg.className = colorMode; // bg 색 변경
+		logoColor = "rgb(17,17,17)";
+		logo.style.fill = logoColor; //logo 색 변경
+		meetusEmoji = document.createTextNode("☕");	
+		meetusMessage = "커피 한잔 고고고";
+		dimColor = "positive-dim";
+		gnbBgColor = "positive"
+	} else {
+		colorMode = "negative";
+		bg.className = colorMode; //bg 색 변경
+		logoColor = "rgb(230,230,230)";
+		logo.style.fill = logoColor; //logo 색 변경
+		
+		if (typeof(postInfo) != 'undefined' && postInfo != null) {
+			document.getElementById("prev-icon").style.fill="rgb(230,230,230)";
+			document.getElementById("next-icon").style.fill="rgb(230,230,230)";
+			document.getElementById("index-icon").style.fill="rgb(230,230,230)";
+			document.getElementById("post-alt-title").style.borderTopColor="rgb(230,230,230)"; //알트헤더 보더 색 변경
+		}
+		meetusEmoji = document.createTextNode("🍺");
+		meetusMessage = "역시 저녁에는 맥주입니다";
+		dimColor = "negative-dim";
+		gnbBgColor = "negative";
+	}
 }
 
-// 화면 사이즈 변경될 때 레이아웃도 함께 갱신	
-window.onresize = function() {windowResize()}; 
-
-// lazy load library
-var bLazy = new Blazy();
+// 화면에 따라 레이아웃이 바뀜
+function layoutControler() {
+	if (typeof(postInfo) != 'undefined' && postInfo != null) {	
+		visiblePoint = postTitle.offsetTop+40; //알트헤더 등장시점 정의
+		// 화면 로딩될 때 시점으로 gnb display 설정
+		gnbRemove();
+		// 스크롤에 따른 알트헤더 등장여부 설정
+		window.onscroll = function() {showAltTitle()};	
+	}
+	else if (typeof(indexContainer) != 'undefined' && indexContainer != null) {
+	// brick layer load
+	var bricklayer = new Bricklayer(document.querySelector(".bricklayer"));
+	// lazyload load
+	var bLazy = new Blazy();
+	} else break;
+}
 
 //포스트 페이지에서 rnb 지우는 함수
 function gnbRemove() {
@@ -184,7 +197,7 @@ function removeDim() {
 }
 
 // 모바일에서 네비게이션 영역의 스크롤 문제(rubber band) 해결
-document.ontouchmove = function (event) {
+function touchMove(event) {
 	var isTouchMoveAllowed = true, target = event.target;
 	while (target !== null) {
 		if (target.classList && target.classList.contains("disable-scrolling")) {
@@ -196,7 +209,7 @@ document.ontouchmove = function (event) {
 	if (!isTouchMoveAllowed) {
 		event.preventDefault();
 	}
-};
+}
 
 function removeIOSRubberEffect(element) {
 	element.addEventListener("touchstart", function () {
@@ -208,7 +221,7 @@ function removeIOSRubberEffect(element) {
 		}
 	} );
 }
-removeIOSRubberEffect( document.querySelector( "#gnb" ) );
+
 
 
 /* 스크롤 할 때 텍스트에 이펙트 넣기
@@ -229,5 +242,10 @@ function scrollFinished() {
     logo.style.fill = logoColor;
     bg.classList.remove("scroll-effect");
 }
-
 */
+
+
+
+
+
+

@@ -63,6 +63,9 @@ if (typeof(postInfo) != 'undefined' && postInfo != null) {
 // 화면 사이즈 변경될 때 레이아웃도 함께 갱신	
 window.onresize = function() {windowResize()}; 
 
+// lazy load library
+var bLazy = new Blazy();
+
 //포스트 페이지에서 rnb 지우는 함수
 function gnbRemove() {
 	if (windowWidth <= 840) {

@@ -8,7 +8,12 @@ github_username:  yygraphics
 permalink: /:year/:title
 markdown: kramdown
 
+sass:
+    sass_dir: _sass
+    style: compressed
 
+gems: [jekyll-minifier]
+ 
 # 페이지네이션 관련해서 잠궈둠. 열 때, gemfile에 주석처리한 것도 풀기.
 # paginate: 10
 # plugins: ['jekyll-paginate']

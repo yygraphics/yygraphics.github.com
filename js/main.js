@@ -6,7 +6,6 @@ var altTitle = document.getElementById("post-alt-title");
 var naviContainer = document.getElementById("navi-container");
 var contentContainer = document.getElementById("content-container");
 var indexContainer = document.getElementById("index-container");
-
 var windowWidth = window.innerWidth; // 화면 넓이 정의
 var meetusEmoji; // 로고 옆 이모지
 var colorMode;  // 사이트 컬러모드 변경
@@ -25,7 +24,7 @@ setColorMode(); // 시간에 따른 사이트 컬러 및 구성요소 변경
 psToggle(); // gnb 영역 커스텀 스크롤 호출
 layoutControler(); // 페이지에 따라 화면 요소 visibility 설정
 window.onresize = function() {windowResize()}; // 화면 사이즈 변경될 때 레이아웃도 함께 갱신	
-document.ontouchmove = function touchMove(event); // 모바일 gnb 열었을 때 body 스크롤 막기
+document.ontouchmove = function() {touchMove()}; // 모바일 gnb 열었을 때 body 스크롤 막기
 removeIOSRubberEffect(document.querySelector("#gnb")); // 모바일 gnb 스크롤할 때 rubberband effect 없애기
 document.getElementById("meetus").appendChild(meetusEmoji); //헤더에 이모지 붙이기
 
@@ -76,7 +75,7 @@ function layoutControler() {
 	var bricklayer = new Bricklayer(document.querySelector(".bricklayer"));
 	// lazyload load
 	var bLazy = new Blazy();
-	} else break;
+	}
 }
 
 //포스트 페이지에서 rnb 지우는 함수
@@ -249,3 +248,4 @@ function scrollFinished() {
 
 
 
+Barba.Pjax.start();

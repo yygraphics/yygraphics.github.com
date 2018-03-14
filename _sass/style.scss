@@ -32,12 +32,14 @@ gnb
   top: 0;
   overflow-y: hidden;
   display: none;
+  z-index: 1;
 }
 
 #logo {
 	width: 248px;
 	height: 72px;
 	padding-top: 40px;
+  z-index: 1;
 }
 
 #logo a {
@@ -49,6 +51,7 @@ gnb
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 	border-bottom: 1px solid rgba(153,153,153,0.3);
+  z-index: 1;
 }
 
 .navi-section:nth-child(3) {
@@ -809,7 +812,6 @@ media query
     padding: initial; 
     -webkit-overflow-scrolling: touch;
     transition: width .2s ease-in-out;
-    z-index: 2;
   }
   
   #gnb-bg {

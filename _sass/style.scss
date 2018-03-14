@@ -745,8 +745,7 @@ media query
     width: 45%;
     min-width: 300px;
     height: initial;
-    padding: initial;
-    overflow-y: scroll; 
+    padding: initial; 
     -webkit-overflow-scrolling: touch;
     transition: width .2s ease-in-out;
   }

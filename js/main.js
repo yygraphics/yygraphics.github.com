@@ -132,6 +132,7 @@ function windowResize() {
 	if (windowWidth > 840) {
 		naviContainer.style.display = "block";
 		gnb.style.height = "100%";
+		gnb.style.overflowY = "hidden"
 		bg.style.overflowY = "initial";
 		toggleOn = false;
 		removeDim();
@@ -140,6 +141,7 @@ function windowResize() {
 	} else if (windowWidth <= 840 && toggleOn === false) {
 		naviContainer.style.display = "none";
 		gnb.style.height = "initial";
+		gnb.style.overflowY = "hidden"
 		bg.style.overflowY = "initial";
 		removeDim();
 		removeGnbBg()
@@ -153,6 +155,7 @@ function naviToggle() {
 		addDim();
 		addGnbBg();
 		gnb.style.height = "100%";
+		gnb.style.overflowY = "scroll"
 		bg.style.overflowY = "hidden";
 		naviContainer.style.display = "block";
 		naviContainer.classList.add("animation-gnbcontent");
@@ -161,6 +164,7 @@ function naviToggle() {
 		removeDim();
 		removeGnbBg();
 		gnb.style.height = "initial";
+		gnb.style.overflowY = "hidden"
 		bg.style.overflowY = "initial";
 		naviContainer.style.display = "none";
 		naviContainer.classList.remove("animation-gnbcontent");

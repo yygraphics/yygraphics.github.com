@@ -1,24 +1,29 @@
 ---
 layout: default
 ---
-<div id="index-container">
-	<div class="bricklayer">
-		{% for post in site.posts %}
-		<div class="card">
-			<a href="{{ site.url }}{{ post.url }}">
-				{% if post.cover-image %}
-				<div class="card-cover">
-					<img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ post.cover-image }}" alt="{{ post.title }}-coverimg">
+
+<div id="barba-wrapper">
+	<div class="barba-container">
+		<div id="index-container">
+			<div class="bricklayer">
+				{% for post in site.posts %}
+				<div class="card">
+					<a href="{{ site.url }}{{ post.url }}">
+						{% if post.cover-image %}
+						<div class="card-cover">
+							<img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ post.cover-image }}" alt="{{ post.title }}-coverimg">
+						</div>
+						{% endif %}
+						<div class="card-title"><h5>{{post.title}}</h5></div>
+					</a>
+					<small>
+						{% for item in post.tags %}
+						<span class="card-tag">{{ item }}</span>
+						{% endfor %}
+					</small>
 				</div>
-				{% endif %}
-				<div class="card-title"><h5>{{post.title}}</h5></div>
-			</a>
-			<small>
-				{% for item in post.tags %}
-				<span class="card-tag">{{ item }}</span>
 				{% endfor %}
-			</small>
+			</div>
 		</div>
-		{% endfor %}
 	</div>
 </div>

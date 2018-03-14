@@ -352,6 +352,7 @@ etc
   height: 100vh;
   position: fixed;
   overflow-y: hidden;
+  z-index: 1;
     -webkit-animation: dim 0.2s ease-out;
   -moz-animation: dim 0.2s ease-out;
   -ms-animation: dim 0.2s ease-out;
@@ -808,6 +809,7 @@ media query
     padding: initial; 
     -webkit-overflow-scrolling: touch;
     transition: width .2s ease-in-out;
+    z-index: 1;
   }
   
   #gnb-bg {
@@ -851,7 +853,6 @@ media query
 
   #index-container {
     padding: 80px 8px 0 8px;
-    z-index: -1;
   }
 
   #post-container {
@@ -861,7 +862,6 @@ media query
   #siteinfo-container {
     padding: 0 16px;
     padding-top: 96px;
-    z-index: -1;
   }
   
   #info-container {

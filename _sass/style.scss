@@ -99,7 +99,7 @@ gnb
 #navi-toggle span {
   display: block;
   position: absolute;
-  height: 3px;
+  height: 2px;
   width: 22px;
 
   -webkit-transform: rotate(0deg);
@@ -113,7 +113,7 @@ gnb
 }
 
 #navi-toggle span:nth-child(1) {
-  top: 9px;
+  top: 10px;
   left: 5px;
 }
 

@@ -48,7 +48,7 @@ gnb
 }
 
 .navi-section {
-	margin-bottom: 20px;
+	margin: 0 0 20px 0;
 	padding-bottom: 20px;
 	border-bottom: 1px solid rgba(153,153,153,0.3);
   z-index: 1;
@@ -806,8 +806,7 @@ media query
 
 @media screen and (max-width: 840px) {
   #gnb {
-    width: 45%;
-    min-width: 300px;
+    width: 100%;
     height: initial;
     padding: initial; 
     -webkit-overflow-scrolling: touch;
@@ -840,9 +839,12 @@ media query
 
   #navi-container {
 		display: none;
-    padding: 0 16px;
+    width: 45%;
+    min-width: 300px;
 	}
-
+  .navi-section {
+    margin: 0 16px 20px 16px;
+  }
   .work-li {
     width: initial;
   }
@@ -889,12 +891,13 @@ media query
 }
 
 @media screen and (max-width: 480px) {
-  #gnb {
+  #gnb-bg {
     width: 100%;
     min-width: initial;
   }
-  #gnb-bg {
+  #navi-container {
+    display: none;
     width: 100%;
-    min-width: 300px;
+    min-width: initial;
   }
 }

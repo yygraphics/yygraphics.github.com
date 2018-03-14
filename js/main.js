@@ -255,8 +255,4 @@ function scrollFinished() {
 */
 
 
-
-
-
-
-Barba.Pjax.start();
+//Barba.Pjax.start();

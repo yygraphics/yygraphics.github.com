@@ -10,6 +10,7 @@ var windowWidth = window.innerWidth; // 화면 넓이 정의
 var meetusEmoji; // 로고 옆 이모지
 var colorMode;  // 사이트 컬러모드 변경
 var toggleOn = false;
+var toggleIcon = document.getElementById("navi-toggle");
 var ps; // 커스텀 스크롤바
 var gnbBg = document.getElementById("gnb-bg"); //모바일 gnb 영역 bg
 var gnbBgColor; //모바일 gnb 영역 bg의 컬러
@@ -39,9 +40,10 @@ function setColorMode() {
 		logoColor = "rgb(17,17,17)";
 		logo.style.fill = logoColor; //logo 색 변경
 		meetusEmoji = document.createTextNode("☕");	
-		meetusMessage = "커피 한잔 고고고";
+		meetusMessage = "커피 한잔 어때요?";
 		dimColor = "positive-dim";
 		gnbBgColor = "positive"
+		toggleIcon.className = "positive-icon";
 	} else {
 		colorMode = "negative";
 		bg.className = colorMode; //bg 색 변경
@@ -58,6 +60,7 @@ function setColorMode() {
 		meetusMessage = "역시 저녁에는 맥주입니다";
 		dimColor = "negative-dim";
 		gnbBgColor = "negative";
+		toggleIcon.className = "negative-icon";
 	}
 }
 
@@ -138,6 +141,7 @@ function windowResize() {
 		removeDim();
 		removeGnbBg()
 		naviContainer.classList.remove("animation-gnbcontent");
+		toggleIcon.classList.remove("open");
 	} else if (windowWidth <= 840 && toggleOn === false) {
 		naviContainer.style.display = "none";
 		gnb.style.height = "initial";
@@ -146,6 +150,7 @@ function windowResize() {
 		removeDim();
 		removeGnbBg()
 		naviContainer.classList.remove("animation-gnbcontent");
+		toggleIcon.classList.remove("open");
 	}
 }
 
@@ -159,6 +164,7 @@ function naviToggle() {
 		bg.style.overflowY = "hidden";
 		naviContainer.style.display = "block";
 		naviContainer.classList.add("animation-gnbcontent");
+		toggleIcon.classList.add("open");
 		toggleOn = true;
 	} else {
 		removeDim();
@@ -168,6 +174,7 @@ function naviToggle() {
 		bg.style.overflowY = "initial";
 		naviContainer.style.display = "none";
 		naviContainer.classList.remove("animation-gnbcontent");
+		toggleIcon.classList.remove("open");
 		toggleOn = false;
 	}
 }
@@ -225,7 +232,40 @@ function removeIOSRubberEffect(element) {
 	} );
 }
 
+// 모바일에서 마우스 오버 이펙트 막기
+function watchForHover() {
+    var hasHoverClass = false;
+    var container = document.body;
+    var lastTouchTime = 0;
 
+    function enableHover() {
+        // filter emulated events coming from touch events
+        if (new Date() - lastTouchTime < 500) return;
+        if (hasHoverClass) return;
+
+        container.className += ' hasHover';
+        hasHoverClass = true;
+    }
+
+    function disableHover() {
+        if (!hasHoverClass) return;
+
+        container.className = container.className.replace(' hasHover', '');
+        hasHoverClass = false;
+    }
+
+    function updateLastTouchTime() {
+        lastTouchTime = new Date();
+    }
+
+    document.addEventListener('touchstart', updateLastTouchTime, true);
+    document.addEventListener('touchstart', disableHover, true);
+    document.addEventListener('mousemove', enableHover, true);
+
+    enableHover();
+}
+
+watchForHover();
 
 /* 스크롤 할 때 텍스트에 이펙트 넣기
 window.onscroll = function() {bodyScroll()};

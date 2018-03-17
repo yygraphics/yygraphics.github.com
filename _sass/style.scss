@@ -875,10 +875,6 @@ media query
   #post-body p {
     padding: 0 16px;
   }
-	
-  #info-container, #post-body p, .siteinfo-text, .siteinfo-headline {
-		max-width: initial;
-	}
 
   #post-alt-title {
     max-width: initial;
@@ -895,9 +891,14 @@ media query
     width: 100%;
     min-width: initial;
   }
+
   #navi-container {
     display: none;
     width: 100%;
     min-width: initial;
+  }
+  
+  #info-container, #post-body p, .siteinfo-text, .siteinfo-headline {
+    max-width: initial;
   }
 }

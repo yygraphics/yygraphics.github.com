@@ -261,7 +261,7 @@ post-page - info
   display: none;
   position: fixed;
   z-index: 90;
-  top: 32px;
+  top: 40px;
   padding-top: 4px;
   border-top: 2px solid #111111;
 }
@@ -477,27 +477,27 @@ animation and transition
 
 @-webkit-keyframes downward {
   from {opacity:0; top:0px;}
-  to {opacity:1; top:32px;}
+  to {opacity:1; top:40px;}
 }
 
 @-moz-keyframes downward {
   from {opacity:0; top:0px;}
-  to {opacity:1; top:32px;}
+  to {opacity:1; top:40px;}
 }
 
 @-ms-keyframes downward {
   from {opacity:0; top:0px;}
-  to {opacity:1; top:32px;}
+  to {opacity:1; top:40px;}
 }
 
 @-o-keyframes downward {
   from {opacity:0; top:0px;}
-  to {opacity:1; top:32px;}
+  to {opacity:1; top:40px;}
 }
 
 @keyframes downward {
   from {opacity:0; top:0px;}
-  to {opacity:1; top:32px;}
+  to {opacity:1; top:40px;}
 }
 
 .animation-rightward {
@@ -725,7 +725,7 @@ progressive image CSS
   left: 0;
   top: 0;
   will-change: transform, opacity;
-  animation: progressiveReveal 1s ease-out;
+  animation: progressiveReveal .7s ease-out;
 }
 
 @keyframes progressiveReveal {
@@ -901,4 +901,41 @@ media query
   #info-container, #post-body p, .siteinfo-text, .siteinfo-headline {
     max-width: initial;
   }
+
+  #post-alt-title {
+    top: 24px;
+  }
+
+  .animation-downward {
+    -webkit-animation: downward 0.3s ease-out;
+    -moz-animation: downward 0.3s ease-out;
+    -ms-animation: downward 0.3s ease-out;
+    -o-animation: downward 0.3s ease-out;
+    animation: downward 0.3s ease-out;
+  }
+  @-webkit-keyframes downward {
+    from {opacity:0; top:0px;}
+    to {opacity:1; top:24px;}
+  }
+
+  @-moz-keyframes downward {
+    from {opacity:0; top:0px;}
+    to {opacity:1; top:24px;}
+  }
+
+  @-ms-keyframes downward {
+    from {opacity:0; top:0px;}
+    to {opacity:1; top:24px;}
+  }
+
+  @-o-keyframes downward {
+    from {opacity:0; top:0px;}
+    to {opacity:1; top:24px;}
+  }
+
+  @keyframes downward {
+    from {opacity:0; top:0px;}
+    to {opacity:1; top:24px;}
+  }
+
 }

@@ -54,9 +54,10 @@ gnb
   z-index: 1;
 }
 
-.navi-section:nth-child(3) {
+.navi-section:nth-child(3), .navi-section:nth-child(4) {
+  padding: 0;
 	border-bottom: none;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .work-li {
@@ -68,10 +69,6 @@ gnb
 
 .li-active {
 	text-decoration: line-through;
-}
-
-#copyright {
-	margin-bottom: 40px;
 }
 
 #meetus {
@@ -194,7 +191,7 @@ index page
 	transform: scale(1.03);
 }
 .card-title {
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .card-tag {
@@ -792,7 +789,7 @@ media query
 	}
 
 	#post-body {
-		max-width: 800px;
+		max-width: 880px;
 	}
 
 	#info-container {
@@ -842,9 +839,11 @@ media query
     width: 45%;
     min-width: 300px;
 	}
+
   .navi-section {
     margin: 0 16px 20px 16px;
   }
+
   .work-li {
     width: initial;
   }

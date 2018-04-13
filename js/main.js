@@ -57,7 +57,7 @@ function setColorMode() {
 			document.getElementById("post-alt-title").style.borderTopColor="rgb(230,230,230)"; //알트헤더 보더 색 변경
 		}
 		meetusEmoji = document.createTextNode("🍺");
-		meetusMessage = "역시 저녁에는 맥주입니다";
+		meetusMessage = "맥주 한잔 마셔요!";
 		dimColor = "negative-dim";
 		gnbBgColor = "negative";
 		toggleIcon.className = "negative-icon";

@@ -34,7 +34,7 @@ function setColorMode() {
 	var day = new Date(); //컬러모드 변경에 필요한 시간 
 	var time = day.getHours(); //컬러모드 변경에 필요한 시간 
 
-	if (time >= 7 && time < 18) {
+	if (time >= 7 && time < 19) {
 		colorMode = "positive";
 		bg.className = colorMode; // bg 색 변경
 		logoColor = "rgb(17,17,17)";
